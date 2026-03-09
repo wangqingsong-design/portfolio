@@ -12,7 +12,7 @@
 }
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  background: #f9f9f9; /* 浅灰背景更显整洁 */
+  background: #f9f9f9;
   color: #333;
   padding: 20px;
   max-width: 1600px;
@@ -34,7 +34,7 @@ h1 {
   font-weight: 400;
 }
 
-/* 1. 双层分类导航：先选产品，再选设计类型（核心优化） */
+/* 产品分类导航 */
 .nav-wrapper {
   max-width: 1200px;
   margin: 0 auto 40px;
@@ -43,15 +43,11 @@ h1 {
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
-.product-nav, .type-nav {
+.product-nav {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 8px;
-  margin-bottom: 15px;
-}
-.product-nav:last-child, .type-nav:last-child {
-  margin-bottom: 0;
 }
 .nav-title {
   width: 100%;
@@ -79,19 +75,19 @@ h1 {
   background: #eef0f2;
 }
 
-/* 2. 产品分组容器：每个产品独立卡片，视觉分隔 */
+/* 产品分组容器 */
 .product-groups {
   max-width: 1400px;
   margin: 0 auto 60px;
   display: grid;
-  gap: 30px; /* 产品组之间大间距，避免混乱 */
+  gap: 30px;
 }
 .product-group {
   background: white;
   padding: 25px;
   border-radius: 12px;
   box-shadow: 0 2px 12px rgba(0,0,0,0.04);
-  display: none; /* 默认隐藏，筛选后显示 */
+  display: none;
 }
 .product-group.show {
   display: block;
@@ -105,7 +101,7 @@ h1 {
   color: #222;
 }
 
-/* 3. 图片网格：统一尺寸+间距，视觉整齐 */
+/* 图片网格 - 核心修改：1:1比例 */
 .img-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
@@ -113,7 +109,8 @@ h1 {
 }
 .img-card {
   position: relative;
-  padding-top: 75%; /* 4:3固定比例，所有图片统一 */
+  /* 核心修改：padding-top改为100%，实现1:1正方形 */
+  padding-top: 100%; 
   border-radius: 8px;
   overflow: hidden;
   cursor: zoom-in;
@@ -129,7 +126,8 @@ h1 {
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  /* 保持图片比例，裁剪多余部分，居中显示 */
+  object-fit: cover; 
   display: block;
   loading: "lazy";
 }
@@ -149,7 +147,7 @@ h1 {
   opacity: 1;
 }
 
-/* 4. 视频区域：和图片区域视觉统一 */
+/* 视频区域（一行3个） */
 .video-section {
   max-width: 1400px;
   margin: 0 auto 60px;
@@ -181,7 +179,7 @@ h1 {
   display: block;
 }
 
-/* 5. 放大层：保持原有交互 */
+/* 图片放大层 */
 .lightbox {
   position: fixed;
   top: 0;
@@ -242,16 +240,17 @@ footer {
   color: #999;
 }
 
-/* 响应式适配：手机端优化 */
+/* 手机端适配 */
 @media (max-width: 768px) {
   .video-grid {
     grid-template-columns: 1fr;
   }
-  .nav-wrapper {
+  .nav-wrapper, .product-group, .video-section {
     padding: 15px;
   }
-  .product-group, .video-section {
-    padding: 15px;
+  /* 手机端图片卡片稍小，仍保持1:1 */
+  .img-grid {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
   }
 }
 </style>
@@ -260,120 +259,165 @@ footer {
 
 <header>
   <h1>亚马逊设计作品集-王青松</h1>
-  <div class="subtitle">多产品设计案例 | 清晰分类 · 统一展示</div>
+  <div class="subtitle">多产品设计案例 | 台灯·落地灯·智能手表·吊扇·充电器·其它</div>
 </header>
 
-<!-- 双层分类导航：先选产品，再选设计类型 -->
+<!-- 产品分类导航 -->
 <div class="nav-wrapper">
   <div class="product-nav">
     <div class="nav-title">选择产品</div>
     <button class="nav-btn active" data-product="全部">全部产品</button>
-    <button class="nav-btn" data-product="无线耳机">无线耳机</button>
+    <button class="nav-btn" data-product="台灯">台灯</button>
+    <button class="nav-btn" data-product="落地灯">落地灯</button>
     <button class="nav-btn" data-product="智能手表">智能手表</button>
-    <button class="nav-btn" data-product="保温杯">保温杯</button>
-    <button class="nav-btn" data-product="手机支架">手机支架</button>
-  </div>
-  <div class="type-nav">
-    <div class="nav-title">选择设计类型</div>
-    <button class="nav-btn active" data-type="全部">全部类型</button>
-    <button class="nav-btn" data-type="Listing主图">Listing主图</button>
-    <button class="nav-btn" data-type="A+详情页">A+详情页</button>
-    <button class="nav-btn" data-type="品牌视觉">品牌视觉</button>
-    <button class="nav-btn" data-type="包装设计">包装设计</button>
+    <button class="nav-btn" data-product="吊扇">吊扇</button>
+    <button class="nav-btn" data-product="充电器">充电器</button>
+    <button class="nav-btn" data-product="其它">其它</button>
   </div>
 </div>
 
-<!-- 产品分组容器（每个产品一个独立卡片） -->
+<!-- 产品分组容器 -->
 <div class="product-groups">
-  <!-- 无线耳机产品组 -->
-  <div class="product-group" data-product="无线耳机">
-    <h3 class="product-group-title">无线耳机</h3>
+  <!-- 1. 台灯产品组（10张1:1显示） -->
+  <div class="product-group" data-product="台灯">
+    <h3 class="product-group-title">台灯</h3>
     <div class="img-grid">
-      <!-- Listing主图 -->
-      <div class="img-card" data-type="Listing主图">
-        <img src="earphone_listing01.jpg" alt="无线耳机-Listing主图01">
-        <div class="img-label">无线耳机-Listing主图01</div>
+      <div class="img-card">
+        <img src="TDH901.jpg" alt="台灯-TDH9-01">
+        <div class="img-label">台灯-TDH9-01</div>
       </div>
-      <div class="img-card" data-type="Listing主图">
-        <img src="earphone_listing02.jpg" alt="无线耳机-Listing主图02">
-        <div class="img-label">无线耳机-Listing主图02</div>
+      <div class="img-card">
+        <img src="TDH902.jpg" alt="台灯-TDH9-02">
+        <div class="img-label">台灯-TDH9-02</div>
       </div>
-      <!-- A+详情页 -->
-      <div class="img-card" data-type="A+详情页">
-        <img src="earphone_a+01.jpg" alt="无线耳机-A+详情页01">
-        <div class="img-label">无线耳机-A+详情页01</div>
+      <div class="img-card">
+        <img src="TDH903.jpg" alt="台灯-TDH9-03">
+        <div class="img-label">台灯-TDH9-03</div>
       </div>
-      <div class="img-card" data-type="A+详情页">
-        <img src="earphone_a+02.jpg" alt="无线耳机-A+详情页02">
-        <div class="img-label">无线耳机-A+详情页02</div>
+      <div class="img-card">
+        <img src="TDH904.jpg" alt="台灯-TDH9-04">
+        <div class="img-label">台灯-TDH9-04</div>
       </div>
-      <!-- 品牌视觉 -->
-      <div class="img-card" data-type="品牌视觉">
-        <img src="earphone_brand01.jpg" alt="无线耳机-品牌视觉01">
-        <div class="img-label">无线耳机-品牌视觉01</div>
+      <div class="img-card">
+        <img src="TDH905.jpg" alt="台灯-TDH9-05">
+        <div class="img-label">台灯-TDH9-05</div>
+      </div>
+      <div class="img-card">
+        <img src="TDH906.jpg" alt="台灯-TDH9-06">
+        <div class="img-label">台灯-TDH9-06</div>
+      </div>
+      <div class="img-card">
+        <img src="TDH907.jpg" alt="台灯-TDH9-07">
+        <div class="img-label">台灯-TDH9-07</div>
+      </div>
+      <div class="img-card">
+        <img src="TDH908.jpg" alt="台灯-TDH9-08">
+        <div class="img-label">台灯-TDH9-08</div>
+      </div>
+      <div class="img-card">
+        <img src="TDH909.jpg" alt="台灯-TDH9-09">
+        <div class="img-label">台灯-TDH9-09</div>
+      </div>
+      <div class="img-card">
+        <img src="TDH910.jpg" alt="台灯-TDH9-10">
+        <div class="img-label">台灯-TDH9-10</div>
       </div>
     </div>
   </div>
 
-  <!-- 智能手表产品组 -->
+  <!-- 2. 落地灯产品组 -->
+  <div class="product-group" data-product="落地灯">
+    <h3 class="product-group-title">落地灯</h3>
+    <div class="img-grid">
+      <div class="img-card">
+        <img src="floor_lamp01.jpg" alt="落地灯-设计图01">
+        <div class="img-label">落地灯-设计图01</div>
+      </div>
+      <div class="img-card">
+        <img src="floor_lamp02.jpg" alt="落地灯-设计图02">
+        <div class="img-label">落地灯-设计图02</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. 智能手表产品组 -->
   <div class="product-group" data-product="智能手表">
     <h3 class="product-group-title">智能手表</h3>
     <div class="img-grid">
-      <div class="img-card" data-type="Listing主图">
-        <img src="watch_listing01.jpg" alt="智能手表-Listing主图01">
-        <div class="img-label">智能手表-Listing主图01</div>
+      <div class="img-card">
+        <img src="smart_watch01.jpg" alt="智能手表-设计图01">
+        <div class="img-label">智能手表-设计图01</div>
       </div>
-      <div class="img-card" data-type="A+详情页">
-        <img src="watch_a+01.jpg" alt="智能手表-A+详情页01">
-        <div class="img-label">智能手表-A+详情页01</div>
+      <div class="img-card">
+        <img src="smart_watch02.jpg" alt="智能手表-设计图02">
+        <div class="img-label">智能手表-设计图02</div>
       </div>
-      <div class="img-card" data-type="包装设计">
-        <img src="watch_package01.jpg" alt="智能手表-包装设计01">
-        <div class="img-label">智能手表-包装设计01</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- 保温杯产品组 -->
-  <div class="product-group" data-product="保温杯">
-    <h3 class="product-group-title">保温杯</h3>
-    <div class="img-grid">
-      <div class="img-card" data-type="Listing主图">
-        <img src="cup_listing01.jpg" alt="保温杯-Listing主图01">
-        <div class="img-label">保温杯-Listing主图01</div>
-      </div>
-      <div class="img-card" data-type="Listing主图">
-        <img src="cup_listing02.jpg" alt="保温杯-Listing主图02">
-        <div class="img-label">保温杯-Listing主图02</div>
-      </div>
-      <div class="img-card" data-type="包装设计">
-        <img src="cup_package01.jpg" alt="保温杯-包装设计01">
-        <div class="img-label">保温杯-包装设计01</div>
+      <div class="img-card">
+        <img src="smart_watch03.jpg" alt="智能手表-设计图03">
+        <div class="img-label">智能手表-设计图03</div>
       </div>
     </div>
   </div>
 
-  <!-- 手机支架产品组 -->
-  <div class="product-group" data-product="手机支架">
-    <h3 class="product-group-title">手机支架</h3>
+  <!-- 4. 吊扇产品组 -->
+  <div class="product-group" data-product="吊扇">
+    <h3 class="product-group-title">吊扇</h3>
     <div class="img-grid">
-      <div class="img-card" data-type="Listing主图">
-        <img src="holder_listing01.jpg" alt="手机支架-Listing主图01">
-        <div class="img-label">手机支架-Listing主图01</div>
+      <div class="img-card">
+        <img src="ceiling_fan01.jpg" alt="吊扇-设计图01">
+        <div class="img-label">吊扇-设计图01</div>
       </div>
-      <div class="img-card" data-type="A+详情页">
-        <img src="holder_a+01.jpg" alt="手机支架-A+详情页01">
-        <div class="img-label">手机支架-A+详情页01</div>
+      <div class="img-card">
+        <img src="ceiling_fan02.jpg" alt="吊扇-设计图02">
+        <div class="img-label">吊扇-设计图02</div>
       </div>
-      <div class="img-card" data-type="品牌视觉">
-        <img src="holder_brand01.jpg" alt="手机支架-品牌视觉01">
-        <div class="img-label">手机支架-品牌视觉01</div>
+      <div class="img-card">
+        <img src="ceiling_fan03.jpg" alt="吊扇-设计图03">
+        <div class="img-label">吊扇-设计图03</div>
+      </div>
+      <div class="img-card">
+        <img src="ceiling_fan04.jpg" alt="吊扇-设计图04">
+        <div class="img-label">吊扇-设计图04</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. 充电器产品组 -->
+  <div class="product-group" data-product="充电器">
+    <h3 class="product-group-title">充电器</h3>
+    <div class="img-grid">
+      <div class="img-card">
+        <img src="charger01.jpg" alt="充电器-设计图01">
+        <div class="img-label">充电器-设计图01</div>
+      </div>
+      <div class="img-card">
+        <img src="charger02.jpg" alt="充电器-设计图02">
+        <div class="img-label">充电器-设计图02</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6. 其它产品组 -->
+  <div class="product-group" data-product="其它">
+    <h3 class="product-group-title">其它</h3>
+    <div class="img-grid">
+      <div class="img-card">
+        <img src="other01.jpg" alt="其它产品-设计图01">
+        <div class="img-label">其它产品-设计图01</div>
+      </div>
+      <div class="img-card">
+        <img src="other02.jpg" alt="其它产品-设计图02">
+        <div class="img-label">其它产品-设计图02</div>
+      </div>
+      <div class="img-card">
+        <img src="other03.jpg" alt="其它产品-设计图03">
+        <div class="img-label">其它产品-设计图03</div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- 放大层 -->
+<!-- 图片放大层 -->
 <div class="lightbox" id="lightbox" onclick="closeLightbox()">
   <div class="lightbox-img-container" id="imgContainer">
     <img id="lightbox-img" src="">
@@ -388,17 +432,17 @@ footer {
   <div class="video-grid">
     <div class="video-item">
       <video controls preload="metadata">
-        <source src="earphone_video01.mp4" type="video/mp4">
+        <source src="desk_lamp_video01.mp4" type="video/mp4">
       </video>
     </div>
     <div class="video-item">
       <video controls preload="metadata">
-        <source src="watch_video01.mp4" type="video/mp4">
+        <source src="smart_watch_video01.mp4" type="video/mp4">
       </video>
     </div>
     <div class="video-item">
       <video controls preload="metadata">
-        <source src="cup_video01.mp4" type="video/mp4">
+        <source src="ceiling_fan_video01.mp4" type="video/mp4">
       </video>
     </div>
   </div>
@@ -407,61 +451,37 @@ footer {
 <footer>© 2026 王青松 | 亚马逊多产品设计作品集</footer>
 
 <script>
-// 1. 分类筛选逻辑（核心：产品+设计类型双层筛选）
+// 产品筛选逻辑
 const productBtns = document.querySelectorAll('.product-nav .nav-btn');
-const typeBtns = document.querySelectorAll('.type-nav .nav-btn');
 const productGroups = document.querySelectorAll('.product-group');
 const imgCards = document.querySelectorAll('.img-card');
 
-// 初始化显示全部
-filterContent('全部', '全部');
+// 初始化显示全部产品
+filterProducts('全部');
 
-// 产品筛选按钮点击
+// 产品筛选按钮点击事件
 productBtns.forEach(btn => {
   btn.addEventListener('click', () => {
     productBtns.forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
     const product = btn.dataset.product;
-    const type = document.querySelector('.type-nav .nav-btn.active').dataset.type;
-    filterContent(product, type);
+    filterProducts(product);
   });
 });
 
-// 设计类型筛选按钮点击
-typeBtns.forEach(btn => {
-  btn.addEventListener('click', () => {
-    typeBtns.forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    const type = btn.dataset.type;
-    const product = document.querySelector('.product-nav .nav-btn.active').dataset.product;
-    filterContent(product, type);
-  });
-});
-
-// 筛选核心函数
-function filterContent(product, type) {
-  // 筛选产品组
+// 产品筛选核心函数
+function filterProducts(product) {
   productGroups.forEach(group => {
     const groupProduct = group.dataset.product;
     if (product === '全部' || groupProduct === product) {
       group.classList.add('show');
-      // 筛选产品组内的图片
-      const groupImgs = group.querySelectorAll('.img-card');
-      groupImgs.forEach(img => {
-        const imgType = img.dataset.type;
-        if (type === '全部' || imgType === type) {
-          img.style.display = 'block';
-        } else {
-          img.style.display = 'none';
-        }
-      });
     } else {
       group.classList.remove('show');
     }
   });
 }
 
-// 2. 图片放大交互
+// 图片放大交互逻辑
 const lightbox = document.getElementById('lightbox');
 const imgContainer = document.getElementById('imgContainer');
 const lightboxImg = document.getElementById('lightbox-img');
@@ -480,6 +500,7 @@ imgCards.forEach(card => {
   });
 });
 
+// 打开放大层
 function openLightbox(src) {
   currentScale = 0.5;
   offsetX = 0;
@@ -493,12 +514,13 @@ function openLightbox(src) {
   document.body.style.overflow = 'hidden';
 }
 
+// 关闭放大层
 function closeLightbox() {
   lightbox.style.display = 'none';
   document.body.style.overflow = 'auto';
 }
 
-// 缩放功能
+// 滚轮缩放功能
 lightbox.addEventListener('wheel', (e) => {
   e.preventDefault();
   const delta = e.deltaY > 0 ? -0.1 : 0.1;
@@ -507,7 +529,7 @@ lightbox.addEventListener('wheel', (e) => {
   scaleTip.textContent = `${Math.round(currentScale * 100)}%`;
 });
 
-// 拖拽功能
+// 图片拖拽功能
 imgContainer.addEventListener('mousedown', (e) => {
   isDragging = true;
   startX = e.clientX - offsetX;
@@ -528,7 +550,7 @@ document.addEventListener('mouseup', () => {
   imgContainer.classList.remove('grabbing');
 });
 
-// ESC关闭
+// ESC键关闭放大层
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') closeLightbox();
 });
