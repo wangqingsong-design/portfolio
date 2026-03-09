@@ -31,21 +31,26 @@ h1 {
   font-size: 14px;
   color: #666;
 }
+/* 核心修改：flex布局实现图片自适应无空隙 */
 .gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 20px;
-  margin-bottom: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 0; /* 彻底去掉间距 */
+  margin-bottom: 60px;
 }
 .gallery img {
-  width: 100%;
-  height: auto;
+  width: auto; /* 按图片原像素宽度显示 */
+  height: auto; /* 按原比例自适应高度 */
   display: block;
-  border-radius: 4px;
-  object-fit: cover;
+  margin: 0; /* 去掉外边距 */
+  padding: 0; /* 去掉内边距 */
+  border-radius: 0; /* 去掉圆角（可选） */
+  object-fit: contain; /* 保持图片原比例，不裁剪 */
   transition: transform 0.2s;
   cursor: zoom-in;
 }
+/* 鼠标悬浮效果保留 */
 .gallery img:hover {
   transform: scale(1.02);
 }
@@ -298,12 +303,4 @@ imgContainer.addEventListener('click', (e) => {
 window.addEventListener('resize', resetToCenter);
 </script>
 </body>
-
 </html>
-
-
-
-
-
-
-
