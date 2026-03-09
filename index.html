@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>亚马逊设计作品集王青松</title>
+<title>亚马逊设计作品集-王青松</title>
 <style>
 * {
   margin: 0;
@@ -12,74 +12,191 @@
 }
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  background: #ffffff;
-  color: #222;
+  background: #f9f9f9; /* 浅灰背景更显整洁 */
+  color: #333;
   padding: 20px;
-  max-width: 1200px;
+  max-width: 1600px;
   margin: 0 auto;
 }
 header {
-  margin: 60px 0 40px;
+  margin: 60px 0 50px;
   text-align: center;
 }
 h1 {
-  font-size: 24px;
-  font-weight: 500;
+  font-size: 28px;
+  font-weight: 700;
   margin-bottom: 10px;
+  color: #222;
 }
 .subtitle {
   font-size: 14px;
   color: #666;
+  font-weight: 400;
 }
-/* 核心：grid布局 + 固定比例 + 自适应间距 */
-.gallery {
+
+/* 1. 双层分类导航：先选产品，再选设计类型（核心优化） */
+.nav-wrapper {
+  max-width: 1200px;
+  margin: 0 auto 40px;
+  padding: 20px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+.product-nav, .type-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 15px;
+}
+.product-nav:last-child, .type-nav:last-child {
+  margin-bottom: 0;
+}
+.nav-title {
+  width: 100%;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #444;
+}
+.nav-btn {
+  padding: 8px 18px;
+  background: #f5f5f5;
+  border: 1px solid #eee;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s;
+}
+.nav-btn.active {
+  background: #222;
+  color: white;
+  border-color: #222;
+}
+.nav-btn:hover:not(.active) {
+  background: #eef0f2;
+}
+
+/* 2. 产品分组容器：每个产品独立卡片，视觉分隔 */
+.product-groups {
+  max-width: 1400px;
+  margin: 0 auto 60px;
   display: grid;
-  /* 自动计算列数：最小280px，最大1fr */
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  /* 自适应间距：根据容器宽度自动调整，最小0，最大20px */
-  gap: clamp(0px, 2vw, 20px);
-  margin-bottom: 60px;
+  gap: 30px; /* 产品组之间大间距，避免混乱 */
 }
-/* 图片容器：固定比例（比如4:3），防止单张占满屏幕 */
-.gallery-item {
+.product-group {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  display: none; /* 默认隐藏，筛选后显示 */
+}
+.product-group.show {
+  display: block;
+}
+.product-group-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #f0f0f0;
+  color: #222;
+}
+
+/* 3. 图片网格：统一尺寸+间距，视觉整齐 */
+.img-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 15px;
+}
+.img-card {
   position: relative;
-  /* 固定比例：padding-top = 高度/宽度 * 100%，4:3就是75%，16:9就是56.25% */
-  padding-top: 75%; 
+  padding-top: 75%; /* 4:3固定比例，所有图片统一 */
+  border-radius: 8px;
   overflow: hidden;
-  border-radius: 4px;
+  cursor: zoom-in;
+  transition: transform 0.2s;
 }
-.gallery-item img {
+.img-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+.img-card img {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover; /* 保持比例填充容器，裁剪多余部分 */
-  transition: transform 0.2s;
-  cursor: zoom-in;
+  object-fit: cover;
+  display: block;
+  loading: "lazy";
 }
-.gallery-item img:hover {
-  transform: scale(1.02);
+.img-card .img-label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 8px;
+  background: rgba(0,0,0,0.6);
+  color: white;
+  font-size: 12px;
+  opacity: 0;
+  transition: opacity 0.2s;
 }
-/* 放大遮罩层：强制居中容器 */
+.img-card:hover .img-label {
+  opacity: 1;
+}
+
+/* 4. 视频区域：和图片区域视觉统一 */
+.video-section {
+  max-width: 1400px;
+  margin: 0 auto 60px;
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+}
+.video-section h2 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #f0f0f0;
+  color: #222;
+}
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+.video-item {
+  border-radius: 8px;
+  overflow: hidden;
+}
+.video-item video {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* 5. 放大层：保持原有交互 */
 .lightbox {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.9);
+  background: rgba(0,0,0,0.95);
   display: none;
   z-index: 9999;
-  cursor: default;
 }
-/* 图片容器：核心修复居中 */
 .lightbox-img-container {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) scale(0.5);
-  transform-origin: center center;
   transition: transform 0.2s ease;
   cursor: grab;
 }
@@ -89,243 +206,332 @@ h1 {
 .lightbox-img-container img {
   width: auto;
   height: auto;
-  max-width: none;
-  max-height: none;
-  border-radius: 6px;
+  max-width: 90vw;
+  max-height: 90vh;
+  border-radius: 8px;
   display: block;
 }
-/* 缩放提示 */
 .scale-tip {
   position: fixed;
   top: 20px;
   right: 20px;
   background: rgba(255,255,255,0.9);
   color: #333;
-  padding: 6px 12px;
-  border-radius: 4px;
+  padding: 8px 12px;
   font-size: 14px;
+  border-radius: 4px;
   z-index: 10000;
 }
-/* 操作提示 */
 .operation-tip {
   position: fixed;
   bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
-  background: rgba(255,255,255,0.8);
+  background: rgba(255,255,255,0.9);
   color: #333;
-  padding: 6px 16px;
-  border-radius: 20px;
+  padding: 8px 16px;
   font-size: 12px;
+  border-radius: 4px;
   z-index: 10000;
 }
-.video-section {
-  margin: 40px 0;
-}
-.video-section h2 {
-  font-size: 16px;
-  margin-bottom: 20px;
-  font-weight: 500;
-}
-video {
-  width: 100%;
-  max-width: 800px;
-  display: block;
-  margin: 0 auto 30px;
-  border-radius: 6px;
-}
+
 footer {
   text-align: center;
   padding: 40px 0;
   font-size: 12px;
   color: #999;
 }
+
+/* 响应式适配：手机端优化 */
+@media (max-width: 768px) {
+  .video-grid {
+    grid-template-columns: 1fr;
+  }
+  .nav-wrapper {
+    padding: 15px;
+  }
+  .product-group, .video-section {
+    padding: 15px;
+  }
+}
 </style>
 </head>
-
 <body>
+
 <header>
   <h1>亚马逊设计作品集-王青松</h1>
-  <div class="subtitle">Amazon Listing Design & A+ Content</div>
+  <div class="subtitle">多产品设计案例 | 清晰分类 · 统一展示</div>
 </header>
 
-<div class="gallery">
-  <!-- 关键：给每张图片加固定比例容器 -->
-  <div class="gallery-item">
-    <img src="work04.jpg" alt="亚马逊设计作品1" onclick="openLightbox(this.src)">
+<!-- 双层分类导航：先选产品，再选设计类型 -->
+<div class="nav-wrapper">
+  <div class="product-nav">
+    <div class="nav-title">选择产品</div>
+    <button class="nav-btn active" data-product="全部">全部产品</button>
+    <button class="nav-btn" data-product="无线耳机">无线耳机</button>
+    <button class="nav-btn" data-product="智能手表">智能手表</button>
+    <button class="nav-btn" data-product="保温杯">保温杯</button>
+    <button class="nav-btn" data-product="手机支架">手机支架</button>
   </div>
-  <div class="gallery-item">
-    <img src="work05.jpg" alt="亚马逊设计作品2" onclick="openLightbox(this.src)">
-  </div>
-  <div class="gallery-item">
-    <img src="work03.jpg" alt="亚马逊设计作品3" onclick="openLightbox(this.src)">
-  </div>
-  <div class="gallery-item">
-    <img src="work06.jpg" alt="亚马逊设计作品4" onclick="openLightbox(this.src)">
-  </div>
-  <div class="gallery-item">
-    <img src="work07.jpg" alt="亚马逊设计作品5" onclick="openLightbox(this.src)">
-  </div>
-  <div class="gallery-item">
-    <img src="work08.jpg" alt="亚马逊设计作品6" onclick="openLightbox(this.src)">
-  </div>
-  <div class="gallery-item">
-    <img src="work09.jpg" alt="亚马逊设计作品7" onclick="openLightbox(this.src)">
-  </div>
-  <div class="gallery-item">
-    <img src="work10.jpg" alt="亚马逊设计作品8" onclick="openLightbox(this.src)">
-  </div>
-  <div class="gallery-item">
-    <img src="work05.jpg" alt="亚马逊设计作品9" onclick="openLightbox(this.src)">
+  <div class="type-nav">
+    <div class="nav-title">选择设计类型</div>
+    <button class="nav-btn active" data-type="全部">全部类型</button>
+    <button class="nav-btn" data-type="Listing主图">Listing主图</button>
+    <button class="nav-btn" data-type="A+详情页">A+详情页</button>
+    <button class="nav-btn" data-type="品牌视觉">品牌视觉</button>
+    <button class="nav-btn" data-type="包装设计">包装设计</button>
   </div>
 </div>
 
-<!-- 图片放大层 -->
+<!-- 产品分组容器（每个产品一个独立卡片） -->
+<div class="product-groups">
+  <!-- 无线耳机产品组 -->
+  <div class="product-group" data-product="无线耳机">
+    <h3 class="product-group-title">无线耳机</h3>
+    <div class="img-grid">
+      <!-- Listing主图 -->
+      <div class="img-card" data-type="Listing主图">
+        <img src="earphone_listing01.jpg" alt="无线耳机-Listing主图01">
+        <div class="img-label">无线耳机-Listing主图01</div>
+      </div>
+      <div class="img-card" data-type="Listing主图">
+        <img src="earphone_listing02.jpg" alt="无线耳机-Listing主图02">
+        <div class="img-label">无线耳机-Listing主图02</div>
+      </div>
+      <!-- A+详情页 -->
+      <div class="img-card" data-type="A+详情页">
+        <img src="earphone_a+01.jpg" alt="无线耳机-A+详情页01">
+        <div class="img-label">无线耳机-A+详情页01</div>
+      </div>
+      <div class="img-card" data-type="A+详情页">
+        <img src="earphone_a+02.jpg" alt="无线耳机-A+详情页02">
+        <div class="img-label">无线耳机-A+详情页02</div>
+      </div>
+      <!-- 品牌视觉 -->
+      <div class="img-card" data-type="品牌视觉">
+        <img src="earphone_brand01.jpg" alt="无线耳机-品牌视觉01">
+        <div class="img-label">无线耳机-品牌视觉01</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 智能手表产品组 -->
+  <div class="product-group" data-product="智能手表">
+    <h3 class="product-group-title">智能手表</h3>
+    <div class="img-grid">
+      <div class="img-card" data-type="Listing主图">
+        <img src="watch_listing01.jpg" alt="智能手表-Listing主图01">
+        <div class="img-label">智能手表-Listing主图01</div>
+      </div>
+      <div class="img-card" data-type="A+详情页">
+        <img src="watch_a+01.jpg" alt="智能手表-A+详情页01">
+        <div class="img-label">智能手表-A+详情页01</div>
+      </div>
+      <div class="img-card" data-type="包装设计">
+        <img src="watch_package01.jpg" alt="智能手表-包装设计01">
+        <div class="img-label">智能手表-包装设计01</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 保温杯产品组 -->
+  <div class="product-group" data-product="保温杯">
+    <h3 class="product-group-title">保温杯</h3>
+    <div class="img-grid">
+      <div class="img-card" data-type="Listing主图">
+        <img src="cup_listing01.jpg" alt="保温杯-Listing主图01">
+        <div class="img-label">保温杯-Listing主图01</div>
+      </div>
+      <div class="img-card" data-type="Listing主图">
+        <img src="cup_listing02.jpg" alt="保温杯-Listing主图02">
+        <div class="img-label">保温杯-Listing主图02</div>
+      </div>
+      <div class="img-card" data-type="包装设计">
+        <img src="cup_package01.jpg" alt="保温杯-包装设计01">
+        <div class="img-label">保温杯-包装设计01</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 手机支架产品组 -->
+  <div class="product-group" data-product="手机支架">
+    <h3 class="product-group-title">手机支架</h3>
+    <div class="img-grid">
+      <div class="img-card" data-type="Listing主图">
+        <img src="holder_listing01.jpg" alt="手机支架-Listing主图01">
+        <div class="img-label">手机支架-Listing主图01</div>
+      </div>
+      <div class="img-card" data-type="A+详情页">
+        <img src="holder_a+01.jpg" alt="手机支架-A+详情页01">
+        <div class="img-label">手机支架-A+详情页01</div>
+      </div>
+      <div class="img-card" data-type="品牌视觉">
+        <img src="holder_brand01.jpg" alt="手机支架-品牌视觉01">
+        <div class="img-label">手机支架-品牌视觉01</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 放大层 -->
 <div class="lightbox" id="lightbox" onclick="closeLightbox()">
   <div class="lightbox-img-container" id="imgContainer">
-    <img id="lightbox-img" src="" alt="放大的作品">
+    <img id="lightbox-img" src="">
   </div>
   <div class="scale-tip" id="scaleTip">50%</div>
   <div class="operation-tip">滚轮缩放 | 鼠标拖拽移动 | ESC关闭</div>
 </div>
 
+<!-- 视频区域 -->
 <div class="video-section">
   <h2>视频作品</h2>
-
-  <!-- 视频1 → 点开也能全屏、居中、放大查看 -->
-  <video 
-    controls 
-    preload="metadata"
-    style="width:100%; max-width:900px; border-radius:8px; display:block; margin:0 auto;"
-    onclick="openLightbox(this.src)">
-    <source src="视频01.mp4" type="video/mp4">
-  </video>
-
+  <div class="video-grid">
+    <div class="video-item">
+      <video controls preload="metadata">
+        <source src="earphone_video01.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="video-item">
+      <video controls preload="metadata">
+        <source src="watch_video01.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="video-item">
+      <video controls preload="metadata">
+        <source src="cup_video01.mp4" type="video/mp4">
+      </video>
+    </div>
+  </div>
 </div>
 
-<footer>
-  © 2026 你的名字 | 亚马逊设计师
-</footer>
+<footer>© 2026 王青松 | 亚马逊多产品设计作品集</footer>
 
 <script>
-// 核心变量
+// 1. 分类筛选逻辑（核心：产品+设计类型双层筛选）
+const productBtns = document.querySelectorAll('.product-nav .nav-btn');
+const typeBtns = document.querySelectorAll('.type-nav .nav-btn');
+const productGroups = document.querySelectorAll('.product-group');
+const imgCards = document.querySelectorAll('.img-card');
+
+// 初始化显示全部
+filterContent('全部', '全部');
+
+// 产品筛选按钮点击
+productBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    productBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const product = btn.dataset.product;
+    const type = document.querySelector('.type-nav .nav-btn.active').dataset.type;
+    filterContent(product, type);
+  });
+});
+
+// 设计类型筛选按钮点击
+typeBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    typeBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const type = btn.dataset.type;
+    const product = document.querySelector('.product-nav .nav-btn.active').dataset.product;
+    filterContent(product, type);
+  });
+});
+
+// 筛选核心函数
+function filterContent(product, type) {
+  // 筛选产品组
+  productGroups.forEach(group => {
+    const groupProduct = group.dataset.product;
+    if (product === '全部' || groupProduct === product) {
+      group.classList.add('show');
+      // 筛选产品组内的图片
+      const groupImgs = group.querySelectorAll('.img-card');
+      groupImgs.forEach(img => {
+        const imgType = img.dataset.type;
+        if (type === '全部' || imgType === type) {
+          img.style.display = 'block';
+        } else {
+          img.style.display = 'none';
+        }
+      });
+    } else {
+      group.classList.remove('show');
+    }
+  });
+}
+
+// 2. 图片放大交互
 const lightbox = document.getElementById('lightbox');
 const imgContainer = document.getElementById('imgContainer');
 const lightboxImg = document.getElementById('lightbox-img');
 const scaleTip = document.getElementById('scaleTip');
 
-// 缩放配置
 let currentScale = 0.5;
-const scaleStep = 0.1;
-const minScale = 0.1;
-const maxScale = 3.0;
-
-// 拖拽变量
 let isDragging = false;
-let startX = 0;
-let startY = 0;
-let offsetX = 0; // 替换原translateX，仅记录拖拽偏移
-let offsetY = 0;
+let startX = 0, startY = 0, offsetX = 0, offsetY = 0;
 
-// 打开放大层（核心修复居中）
-function openLightbox(imgSrc) {
-  // 重置所有状态
+// 绑定所有图片的点击放大事件
+imgCards.forEach(card => {
+  const img = card.querySelector('img');
+  card.addEventListener('click', (e) => {
+    e.stopPropagation();
+    openLightbox(img.src);
+  });
+});
+
+function openLightbox(src) {
   currentScale = 0.5;
   offsetX = 0;
   offsetY = 0;
   
-  // 清空旧图片，避免加载延迟导致的位置错误
-  lightboxImg.src = "";
-  // 强制重置容器位置
+  lightboxImg.src = src;
   imgContainer.style.transform = `translate(-50%, -50%) scale(${currentScale})`;
   scaleTip.textContent = `${Math.round(currentScale * 100)}%`;
   
-  // 加载新图片（确保加载完成后再显示）
-  lightboxImg.onload = function() {
-    // 图片加载完成后，重新确认居中
-    resetToCenter();
-  };
-  lightboxImg.src = imgSrc;
-  
-  // 显示放大层
   lightbox.style.display = 'block';
   document.body.style.overflow = 'hidden';
 }
 
-// 重置图片到屏幕正中心
-function resetToCenter() {
-  offsetX = 0;
-  offsetY = 0;
-  imgContainer.style.transform = `translate(calc(-50% + ${offsetX}px), calc(-50% + ${offsetY}px)) scale(${currentScale})`;
-}
-
-// 更新图片位置和缩放
-function updateImgTransform() {
-  imgContainer.style.transform = `translate(calc(-50% + ${offsetX}px), calc(-50% + ${offsetY}px)) scale(${currentScale})`;
-}
-
-// 滚轮缩放（修复居中缩放）
-function handleWheel(e) {
-  e.preventDefault();
-  
-  const mouseX = e.clientX;
-  const mouseY = e.clientY;
-  const delta = e.deltaY > 0 ? -scaleStep : scaleStep;
-  const newScale = Math.max(minScale, Math.min(maxScale, currentScale + delta));
-  
-  // 计算缩放偏移（保证鼠标点位置不变，同时保留居中基准）
-  const scaleRatio = newScale / currentScale;
-  offsetX = (mouseX - (mouseX - (window.innerWidth/2 + offsetX)) * scaleRatio) - window.innerWidth/2;
-  offsetY = (mouseY - (mouseY - (window.innerHeight/2 + offsetY)) * scaleRatio) - window.innerHeight/2;
-  
-  currentScale = newScale;
-  scaleTip.textContent = `${Math.round(currentScale * 100)}%`;
-  updateImgTransform();
-}
-
-// 拖拽开始
-function handleDragStart(e) {
-  isDragging = true;
-  imgContainer.classList.add('grabbing');
-  startX = e.clientX - offsetX;
-  startY = e.clientY - offsetY;
-  e.preventDefault();
-}
-
-// 拖拽中
-function handleDragging(e) {
-  if (!isDragging) return;
-  offsetX = e.clientX - startX;
-  offsetY = e.clientY - startY;
-  updateImgTransform();
-}
-
-// 拖拽结束
-function handleDragEnd() {
-  isDragging = false;
-  imgContainer.classList.remove('grabbing');
-}
-
-// 关闭放大层
 function closeLightbox() {
   lightbox.style.display = 'none';
   document.body.style.overflow = 'auto';
 }
 
-// 绑定事件
-imgContainer.addEventListener('mousedown', handleDragStart);
-document.addEventListener('mousemove', handleDragging);
-document.addEventListener('mouseup', handleDragEnd);
-lightbox.addEventListener('wheel', handleWheel);
+// 缩放功能
+lightbox.addEventListener('wheel', (e) => {
+  e.preventDefault();
+  const delta = e.deltaY > 0 ? -0.1 : 0.1;
+  currentScale = Math.max(0.1, Math.min(3, currentScale + delta));
+  imgContainer.style.transform = `translate(calc(-50% + ${offsetX}px), calc(-50% + ${offsetY}px)) scale(${currentScale})`;
+  scaleTip.textContent = `${Math.round(currentScale * 100)}%`;
+});
+
+// 拖拽功能
+imgContainer.addEventListener('mousedown', (e) => {
+  isDragging = true;
+  startX = e.clientX - offsetX;
+  startY = e.clientY - offsetY;
+  imgContainer.classList.add('grabbing');
+  e.preventDefault();
+});
+
+document.addEventListener('mousemove', (e) => {
+  if (!isDragging) return;
+  offsetX = e.clientX - startX;
+  offsetY = e.clientY - startY;
+  imgContainer.style.transform = `translate(calc(-50% + ${offsetX}px), calc(-50% + ${offsetY}px)) scale(${currentScale})`;
+});
+
+document.addEventListener('mouseup', () => {
+  isDragging = false;
+  imgContainer.classList.remove('grabbing');
+});
+
+// ESC关闭
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') closeLightbox();
 });
-imgContainer.addEventListener('click', (e) => {
-  e.stopPropagation();
-});
-
-// 窗口大小变化时，重置图片居中
-window.addEventListener('resize', resetToCenter);
 </script>
 </body>
 </html>
