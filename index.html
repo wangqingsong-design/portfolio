@@ -5,11 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>亚马逊设计作品集-王青松</title>
 <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+* { margin:0; padding:0; box-sizing:border-box; }
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   background: #f9f9f9;
@@ -18,241 +14,192 @@ body {
   max-width: 1600px;
   margin: 0 auto;
 }
-header {
-  margin: 60px 0 50px;
-  text-align: center;
-}
-h1 {
-  font-size: 28px;
-  font-weight: 700;
-  margin-bottom: 10px;
-  color: #222;
-}
-.subtitle {
-  font-size: 14px;
-  color: #666;
-  font-weight: 400;
-}
+header { margin:60px 0 50px; text-align:center; }
+h1 { font-size:28px; font-weight:700; margin-bottom:10px; color:#222; }
+.subtitle { font-size:14px; color:#666; font-weight:400; }
 
-/* 产品分类导航 */
 .nav-wrapper {
-  max-width: 1200px;
-  margin: 0 auto 40px;
-  padding: 20px;
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  max-width:1200px;
+  margin:0 auto 40px;
+  padding:20px;
+  background:white;
+  border-radius:12px;
+  box-shadow:0 2px 8px rgba(0,0,0,0.05);
 }
 .product-nav {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 8px;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:8px;
 }
 .nav-title {
-  width: 100%;
-  text-align: center;
-  font-size: 15px;
-  font-weight: 600;
-  margin-bottom: 10px;
-  color: #444;
+  width:100%;
+  text-align:center;
+  font-size:15px;
+  font-weight:600;
+  margin-bottom:10px;
+  color:#444;
 }
 .nav-btn {
-  padding: 8px 18px;
-  background: #f5f9fa;
-  border: 1px solid #eee;
-  border-radius: 20px;
-  cursor: pointer;
-  font-size: 14px;
-  transition: all 0.2s;
+  padding:8px 18px;
+  background:#f5f9fa;
+  border:1px solid #eee;
+  border-radius:20px;
+  cursor:pointer;
+  font-size:14px;
+  transition:all 0.2s;
 }
 .nav-btn.active {
-  background: #222;
-  color: white;
-  border-color: #222;
+  background:#222;
+  color:white;
+  border-color:#222;
 }
-.nav-btn:hover:not(.active) {
-  background: #eef0f2;
-}
+.nav-btn:hover:not(.active) { background:#eef0f2; }
 
-/* 产品分组容器 */
 .product-groups {
-  max-width: 1400px;
-  margin: 0 auto 60px;
-  display: grid;
-  gap: 30px;
+  max-width:1400px;
+  margin:0 auto 60px;
+  display:grid;
+  gap:30px;
 }
 .product-group {
-  background: white;
-  padding: 25px;
-  border-radius: 12px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
-  display: none;
+  background:white;
+  padding:25px;
+  border-radius:12px;
+  box-shadow:0 2px 12px rgba(0,0,0,0.04);
+  display:none;
 }
-.product-group.show {
-  display: block;
-}
+.product-group.show { display:block; }
 .product-group-title {
-  font-size: 18px;
-  font-weight: 600;
-  margin-bottom: 20px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid #f0f0f0;
-  color: #222;
+  font-size:18px;
+  font-weight:600;
+  margin-bottom:20px;
+  padding-bottom:10px;
+  border-bottom:1px solid #f0f0f0;
+  color:#222;
 }
 
-/* 图片网格 - 1:1正方形 */
 .img-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 15px;
+  display:grid;
+  grid-template-columns:repeat(auto-fill, minmax(240px, 1fr));
+  gap:15px;
 }
 .img-card {
-  position: relative;
-  padding-top: 100%; /* 1:1正方形核心 */
-  border-radius: 8px;
-  overflow: hidden;
-  cursor: zoom-in;
-  transition: transform 0.2s;
+  position:relative;
+  padding-top:100%;
+  border-radius:8px;
+  overflow:hidden;
+  cursor:zoom-in;
+  transition:transform 0.2s;
 }
-/* 2.2:1 横版 */
-.img-card.ratio-2-2 {
-  padding-top: 45.45% !important;
-}
+.img-card.ratio-2-2 { padding-top:45.45% !important; }
 .img-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transform:translateY(-3px);
+  box-shadow:0 4px 12px rgba(0,0,0,0.08);
 }
 .img-card img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  loading: "lazy";
+  position:absolute;
+  top:0; left:0;
+  width:100%; height:100%;
+  object-fit:cover;
+  display:block;
 }
 .img-label {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 8px;
-  background: rgba(0,0,0,0.6);
-  color: white;
-  font-size: 12px;
-  opacity: 0;
-  transition: opacity 0.2s;
+  position:absolute;
+  bottom:0; left:0; right:0;
+  padding:8px;
+  background:rgba(0,0,0,0.6);
+  color:white;
+  font-size:12px;
+  opacity:0;
+  transition:opacity 0.2s;
 }
-.img-card:hover .img-label {
-  opacity: 1;
-}
+.img-card:hover .img-label { opacity:1; }
 
-/* 视频区域（一行3个） */
-.video-section {
-  max-width: 1400px;
-  margin: 0 auto 60px;
-  background: white;
-  padding: 25px;
-  border-radius: 12px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
-}
-.video-section h2 {
-  font-size: 18px;
-  font-weight: 600;
-  margin-bottom: 20px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid #f0f0f0;
-  color: #222;
-}
 .video-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 15px;
+  display:grid;
+  grid-template-columns:repeat(auto-fill, minmax(320px, 1fr));
+  gap:20px;
 }
 .video-item {
-  border-radius: 8px;
-  overflow: hidden;
+  border-radius:8px;
+  overflow:hidden;
+  background:#000;
 }
 .video-item video {
-  width: 100%;
-  height: auto;
-  display: block;
+  width:100%;
+  height:auto;
+  display:block;
 }
 
-/* 图片放大层 */
 .lightbox {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0,0,0,0.95);
-  display: none;
-  z-index: 9999;
+  position:fixed;
+  top:0; left:0;
+  width:100vw; height:100vh;
+  background:rgba(0,0,0,0.95);
+  display:none;
+  z-index:9999;
 }
 .lightbox-img-container {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(0.5);
-  transition: transform 0.2s ease;
-  cursor: grab;
+  position:absolute;
+  top:50%; left:50%;
+  transform:translate(-50%,-50%) scale(0.5);
+  transition:transform 0.2s ease;
+  cursor:grab;
 }
-.lightbox-img-container.grabbing {
-  cursor: grabbing;
-}
+.lightbox-img-container.grabbing { cursor:grabbing; }
 .lightbox-img-container img {
-  width: auto;
-  height: auto;
-  max-width: 90vw;
-  max-height: 90vh;
-  border-radius: 8px;
-  display: block;
+  width:auto; height:auto;
+  max-width:90vw; max-height:90vh;
+  border-radius:8px;
+  display:block;
 }
 .scale-tip {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  background: rgba(255,255,255,0.9);
-  color: #333;
-  padding: 8px 12px;
-  font-size: 14px;
-  border-radius: 4px;
-  z-index: 10000;
+  position:fixed;
+  top:20px; right:20px;
+  background:rgba(255,255,255,0.9);
+  color:#333;
+  padding:8px 12px;
+  font-size:14px;
+  border-radius:4px;
+  z-index:10000;
 }
 .operation-tip {
-  position: fixed;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: rgba(255,255,255,0.9);
-  color: #333;
-  padding: 8px 16px;
-  font-size: 12px;
-  border-radius: 4px;
-  z-index: 10000;
+  position:fixed;
+  bottom:20px; left:50%;
+  transform:translateX(-50%);
+  background:rgba(255,255,255,0.9);
+  color:#333;
+  padding:8px 16px;
+  font-size:12px;
+  border-radius:4px;
+  z-index:10000;
 }
 
 footer {
-  text-align: center;
-  padding: 40px 0;
-  font-size: 12px;
-  color: #999;
+  text-align:center;
+  padding:40px 0;
+  font-size:12px;
+  color:#999;
 }
 
-/* 手机端适配 */
-@media (max-width: 768px) {
-  .video-grid {
-    grid-template-columns: 1fr;
-  }
-  .nav-wrapper, .product-group, .video-section {
-    padding: 15px;
-  }
-  .img-grid {
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  }
+.img-card::before {
+  content:"";
+  position:absolute;
+  top:0; left:0;
+  width:100%; height:100%;
+  background:#f0f0f0;
+  z-index:1;
+}
+.img-card img { z-index:2; }
+.img-card img.loaded::before { display:none; }
+
+@media (max-width:768px) {
+  .video-grid { grid-template-columns:1fr; }
+  .nav-wrapper, .product-group { padding:15px; }
+  .img-grid { grid-template-columns:repeat(auto-fill, minmax(180px,1fr)); }
+  .scale-tip { top:10px; right:10px; font-size:12px; padding:6px 10px; }
+  .operation-tip { font-size:10px; padding:6px 12px; bottom:10px; }
 }
 </style>
 </head>
@@ -260,619 +207,500 @@ footer {
 
 <header>
   <h1>亚马逊设计作品集-王青松</h1>
-  <div class="subtitle">多产品设计案例 | 台灯·落地灯·智能手表·吊扇·充电器·其它</div>
+  <div class="subtitle">多产品设计案例 | 台灯 · 落地灯 · 产品渲染 · 视频作品 · 其它</div>
 </header>
 
-<!-- 产品分类导航 -->
 <div class="nav-wrapper">
   <div class="product-nav">
     <div class="nav-title">选择产品</div>
     <button class="nav-btn active" data-product="全部">全部产品</button>
     <button class="nav-btn" data-product="台灯">台灯</button>
     <button class="nav-btn" data-product="落地灯">落地灯</button>
-    <button class="nav-btn" data-product="智能手表">智能手表</button>
-    <button class="nav-btn" data-product="吊扇">吊扇</button>
-    <button class="nav-btn" data-product="充电器">充电器</button>
+    <button class="nav-btn" data-product="产品渲染">产品渲染</button>
+    <button class="nav-btn" data-product="视频作品">视频作品</button>
     <button class="nav-btn" data-product="其它">其它</button>
   </div>
 </div>
 
-<!-- 产品分组容器 -->
 <div class="product-groups">
-  <!-- 1. 台灯产品组（总计40张） -->
-  <div class="product-group" data-product="台灯">
+
+  <!-- 台灯 70张 -->
+  <div class="product-group show" data-product="台灯">
     <h3 class="product-group-title">台灯</h3>
     <div class="img-grid">
-      <!-- 原有1-10张：1:1 -->
-      <div class="img-card">
-        <img src="TDH901.jpg" alt="台灯-TDH9-01">
-        <div class="img-label">台灯-TDH9-01</div>
-      </div>
-      <div class="img-card">
-        <img src="TDH902.jpg" alt="台灯-TDH9-02">
-        <div class="img-label">台灯-TDH9-02</div>
-      </div>
-      <div class="img-card">
-        <img src="TDH903.jpg" alt="台灯-TDH9-03">
-        <div class="img-label">台灯-TDH9-03</div>
-      </div>
-      <div class="img-card">
-        <img src="TDH904.jpg" alt="台灯-TDH9-04">
-        <div class="img-label">台灯-TDH9-04</div>
-      </div>
-      <div class="img-card">
-        <img src="TDH905.jpg" alt="台灯-TDH9-05">
-        <div class="img-label">台灯-TDH9-05</div>
-      </div>
-      <div class="img-card">
-        <img src="TDH906.jpg" alt="台灯-TDH9-06">
-        <div class="img-label">台灯-TDH9-06</div>
-      </div>
-      <div class="img-card">
-        <img src="TDH907.jpg" alt="台灯-TDH9-07">
-        <div class="img-label">台灯-TDH9-07</div>
-      </div>
-      <div class="img-card">
-        <img src="TDH908.jpg" alt="台灯-TDH9-08">
-        <div class="img-label">台灯-TDH9-08</div>
-      </div>
-      <div class="img-card">
-        <img src="TDH909.jpg" alt="台灯-TDH9-09">
-        <div class="img-label">台灯-TDH9-09</div>
-      </div>
-      <div class="img-card">
-        <img src="TDH910.jpg" alt="台灯-TDH9-10">
-        <div class="img-label">台灯-TDH9-10</div>
-      </div>
-
-      <!-- 原有11-20张：2.2:1 -->
-      <div class="img-card ratio-2-2">
-        <img src="TDH911.jpg" alt="台灯-TDH9-11">
-        <div class="img-label">台灯-TDH9-11</div>
-      </div>
-      <div class="img-card ratio-2-2">
-        <img src="TDH912.jpg" alt="台灯-TDH9-12">
-        <div class="img-label">台灯-TDH9-12</div>
-      </div>
-      <div class="img-card ratio-2-2">
-        <img src="TDH913.jpg" alt="台灯-TDH9-13">
-        <div class="img-label">台灯-TDH9-13</div>
-      </div>
-      <div class="img-card ratio-2-2">
-        <img src="TDH914.jpg" alt="台灯-TDH9-14">
-        <div class="img-label">台灯-TDH9-14</div>
-      </div>
-      <div class="img-card ratio-2-2">
-        <img src="TDH915.jpg" alt="台灯-TDH9-15">
-        <div class="img-label">台灯-TDH9-15</div>
-      </div>
-      <div class="img-card ratio-2-2">
-        <img src="TDH916.jpg" alt="台灯-TDH9-16">
-        <div class="img-label">台灯-TDH9-16</div>
-      </div>
-      <div class="img-card ratio-2-2">
-        <img src="TDH917.jpg" alt="台灯-TDH9-17">
-        <div class="img-label">台灯-TDH9-17</div>
-      </div>
-      <div class="img-card ratio-2-2">
-        <img src="TDH918.jpg" alt="台灯-TDH9-18">
-        <div class="img-label">台灯-TDH9-18</div>
-      </div>
-      <div class="img-card ratio-2-2">
-        <img src="TDH919.jpg" alt="台灯-TDH9-19">
-        <div class="img-label">台灯-TDH9-19</div>
-      </div>
-      <div class="img-card ratio-2-2">
-        <img src="TDH920.jpg" alt="台灯-TDH9-20">
-        <div class="img-label">台灯-TDH9-20</div>
-      </div>
-
-      <!-- 新增21-30张：TDH01 (1)-(10).png，1:1 -->
-      <div class="img-card">
-        <img src="TDH01 (1).png" alt="台灯-TDH01-01">
-        <div class="img-label">台灯-TDH01-01</div>
-      </div>
-      <div class="img-card">
-        <img src="TDH01 (2).png" alt="台灯-TDH01-02">
-        <div class="img-label">台灯-TDH01-02</div>
-      </div>
-      <div class="img-card">
-        <img src="TDH01 (3).png" alt="台灯-TDH01-03">
-        <div class="img-label">台灯-TDH01-03</div>
-      </div>
-      <div class="img-card">
-        <img src="TDH01 (4).png" alt="台灯-TDH01-04">
-        <div class="img-label">台灯-TDH01-04</div>
-      </div>
-      <div class="img-card">
-        <img src="TDH01 (5).png" alt="台灯-TDH01-05">
-        <div class="img-label">台灯-TDH01-05</div>
-      </div>
-      <div class="img-card">
-        <img src="TDH01 (6).png" alt="台灯-TDH01-06">
-        <div class="img-label">台灯-TDH01-06</div>
-      </div>
-      <div class="img-card">
-        <img src="TDH01 (7).png" alt="台灯-TDH01-07">
-        <div class="img-label">台灯-TDH01-07</div>
-      </div>
-      <div class="img-card">
-        <img src="TDH01 (8).png" alt="台灯-TDH01-08">
-        <div class="img-label">台灯-TDH01-08</div>
-      </div>
-      <div class="img-card">
-        <img src="TDH01 (9).png" alt="台灯-TDH01-09">
-        <div class="img-label">台灯-TDH01-09</div>
-      </div>
-      <div class="img-card">
-        <img src="TDH01 (10).png" alt="台灯-TDH01-10">
-        <div class="img-label">台灯-TDH01-10</div>
-      </div>
-
-      <!-- 新增31-40张：TDH01 (11)-(20).png，2.2:1 -->
-      <div class="img-card ratio-2-2">
-        <img src="TDH01 (11).png" alt="台灯-TDH01-11">
-        <div class="img-label">台灯-TDH01-11</div>
-      </div>
-      <div class="img-card ratio-2-2">
-        <img src="TDH01 (12).png" alt="台灯-TDH01-12">
-        <div class="img-label">台灯-TDH01-12</div>
-      </div>
-      <div class="img-card ratio-2-2">
-        <img src="TDH01 (13).png" alt="台灯-TDH01-13">
-        <div class="img-label">台灯-TDH01-13</div>
-      </div>
-      <div class="img-card ratio-2-2">
-        <img src="TDH01 (14).png" alt="台灯-TDH01-14">
-        <div class="img-label">台灯-TDH01-14</div>
-      </div>
-      <div class="img-card ratio-2-2">
-        <img src="TDH01 (15).png" alt="台灯-TDH01-15">
-        <div class="img-label">台灯-TDH01-15</div>
-      </div>
-      <div class="img-card ratio-2-2">
-        <img src="TDH01 (16).png" alt="台灯-TDH01-16">
-        <div class="img-label">台灯-TDH01-16</div>
-      </div>
-      <div class="img-card ratio-2-2">
-        <img src="TDH01 (17).png" alt="台灯-TDH01-17">
-        <div class="img-label">台灯-TDH01-17</div>
-      </div>
-      <div class="img-card ratio-2-2">
-        <img src="TDH01 (18).png" alt="台灯-TDH01-18">
-        <div class="img-label">台灯-TDH01-18</div>
-      </div>
-      <div class="img-card ratio-2-2">
-        <img src="TDH01 (19).png" alt="台灯-TDH01-19">
-        <div class="img-label">台灯-TDH01-19</div>
-      </div>
-      <div class="img-card ratio-2-2">
-        <img src="TDH01 (20).png" alt="台灯-TDH01-20">
-        <div class="img-label">台灯-TDH01-20</div>
-      </div>
+      <div class="img-card"><img src="TDH901.jpg" alt="台灯-TDH9-01" onload="this.classList.add('loaded')"><div class="img-label">台灯-TDH9-01</div></div>
+      <div class="img-card"><img src="TDH902.jpg" alt="台灯-TDH9-02" onload="this.classList.add('loaded')"><div class="img-label">台灯-TDH9-02</div></div>
+      <div class="img-card"><img src="TDH903.jpg" alt="台灯-TDH9-03" onload="this.classList.add('loaded')"><div class="img-label">台灯-TDH9-03</div></div>
+      <div class="img-card"><img src="TDH904.jpg" alt="台灯-TDH9-04" onload="this.classList.add('loaded')"><div class="img-label">台灯-TDH9-04</div></div>
+      <div class="img-card"><img src="TDH905.jpg" alt="台灯-TDH9-05" onload="this.classList.add('loaded')"><div class="img-label">台灯-TDH9-05</div></div>
+      <div class="img-card"><img src="TDH906.jpg" alt="台灯-TDH9-06" onload="this.classList.add('loaded')"><div class="img-label">台灯-TDH9-06</div></div>
+      <div class="img-card"><img src="TDH907.jpg" alt="台灯-TDH9-07" onload="this.classList.add('loaded')"><div class="img-label">台灯-TDH9-07</div></div>
+      <div class="img-card"><img src="TDH908.jpg" alt="台灯-TDH9-08" onload="this.classList.add('loaded')"><div class="img-label">台灯-TDH9-08</div></div>
+      <div class="img-card"><img src="TDH909.jpg" alt="台灯-TDH9-09" onload="this.classList.add('loaded')"><div class="img-label">台灯-TDH9-09</div></div>
+      <div class="img-card"><img src="TDH910.jpg" alt="台灯-TDH9-10" onload="this.classList.add('loaded')"><div class="img-label">台灯-TDH9-10</div></div>
+      <div class="img-card ratio-2-2"><img src="TDH911.jpg" alt="台灯-TDH9-11" onload="this.classList.add('loaded')"><div class="img-label">台灯-TDH9-11</div></div>
+      <div class="img-card ratio-2-2"><img src="TDH912.jpg" alt="台灯-TDH9-12" onload="this.classList.add('loaded')"><div class="img-label">台灯-TDH9-12</div></div>
+      <div class="img-card ratio-2-2"><img src="TDH913.jpg" alt="台灯-TDH9-13" onload="this.classList.add('loaded')"><div class="img-label">台灯-TDH9-13</div></div>
+      <div class="img-card ratio-2-2"><img src="TDH914.jpg" alt="台灯-TDH9-14" onload="this.classList.add('loaded')"><div class="img-label">台灯-TDH9-14</div></div>
+      <div class="img-card ratio-2-2"><img src="TDH915.jpg" alt="台灯-TDH9-15" onload="this.classList.add('loaded')"><div class="img-label">台灯-TDH9-15</div></div>
+      <div class="img-card ratio-2-2"><img src="TDH916.jpg" alt="台灯-TDH9-16" onload="this.classList.add('loaded')"><div class="img-label">台灯-TDH9-16</div></div>
+      <div class="img-card ratio-2-2"><img src="TDH917.jpg" alt="台灯-TDH9-17" onload="this.classList.add('loaded')"><div class="img-label">台灯-TDH9-17</div></div>
+      <div class="img-card ratio-2-2"><img src="TDH918.jpg" alt="台灯-TDH9-18" onload="this.classList.add('loaded')"><div class="img-label">台灯-TDH9-18</div></div>
+      <div class="img-card ratio-2-2"><img src="TDH919.jpg" alt="台灯-TDH9-19" onload="this.classList.add('loaded')"><div class="img-label">台灯-TDH9-19</div></div>
+      <div class="img-card ratio-2-2"><img src="TDH920.jpg" alt="台灯-TDH9-20" onload="this.classList.add('loaded')"><div class="img-label">台灯-TDH9-20</div></div>
+      <div class="img-card ratio-2-2"><img src="TDH921.jpg" alt="台灯-TDH9-21" onload="this.classList.add('loaded')"><div class="img-label">台灯-TDH9-21</div></div>
+      <div class="img-card ratio-2-2"><img src="TDH922.jpg" alt="台灯-TDH9-22" onload="this.classList.add('loaded')"><div class="img-label">台灯-TDH9-22</div></div>
+      <div class="img-card ratio-2-2"><img src="TDH923.jpg" alt="台灯-TDH9-23" onload="this.classList.add('loaded')"><div class="img-label">台灯-TDH9-23</div></div>
+      <div class="img-card ratio-2-2"><img src="TDH924.jpg" alt="台灯-TDH9-24" onload="this.classList.add('loaded')"><div class="img-label">台灯-TDH9-24</div></div>
+      <div class="img-card ratio-2-2"><img src="TDH925.jpg" alt="台灯-TDH9-25" onload="this.classList.add('loaded')"><div class="img-label">台灯-TDH9-25</div></div>
+      <div class="img-card ratio-2-2"><img src="TDH926.jpg" alt="台灯-TDH9-26" onload="this.classList.add('loaded')"><div class="img-label">台灯-TDH9-26</div></div>
+      <div class="img-card ratio-2-2"><img src="TDH927.jpg" alt="台灯-TDH9-27" onload="this.classList.add('loaded')"><div class="img-label">台灯-TDH9-27</div></div>
+      <div class="img-card ratio-2-2"><img src="TDH928.jpg" alt="台灯-TDH9-28" onload="this.classList.add('loaded')"><div class="img-label">台灯-TDH9-28</div></div>
+      <div class="img-card ratio-2-2"><img src="TDH929.jpg" alt="台灯-TDH9-29" onload="this.classList.add('loaded')"><div class="img-label">台灯-TDH9-29</div></div>
+      <div class="img-card ratio-2-2"><img src="TDH930.jpg" alt="台灯-TDH9-30" onload="this.classList.add('loaded')"><div class="img-label">台灯-TDH9-30</div></div>
+      <div class="img-card"><img src="TDH01 (1).png" alt="台灯-TDH01-01" onload="this.classList.add('loaded')"><div class="img-label">台灯-TDH01-01</div></div>
+      <div class="img-card"><img src="TDH01 (2).png" alt="台灯-TDH01-02" onload="this.classList.add('loaded')"><div class="img-label">台灯-TDH01-02</div></div>
+      <div class="img-card"><img src="TDH01 (3).png" alt="台灯-TDH01-03" onload="this.classList.add('loaded')"><div class="img-label">台灯-TDH01-03</div></div>
+      <div class="img-card"><img src="TDH01 (4).png" alt="台灯-TDH01-04" onload="this.classList.add('loaded')"><div class="img-label">台灯-TDH01-04</div></div>
+      <div class="img-card"><img src="TDH01 (5).png" alt="台灯-TDH01-05" onload="this.classList.add('loaded')"><div class="img-label">台灯-TDH01-05</div></div>
+      <div class="img-card"><img src="TDH01 (6).png" alt="台灯-TDH01-06" onload="this.classList.add('loaded')"><div class="img-label">台灯-TDH01-06</div></div>
+      <div class="img-card"><img src="TDH01 (7).png" alt="台灯-TDH01-07" onload="this.classList.add('loaded')"><div class="img-label">台灯-TDH01-07</div></div>
+      <div class="img-card"><img src="TDH01 (8).png" alt="台灯-TDH01-08" onload="this.classList.add('loaded')"><div class="img-label">台灯-TDH01-08</div></div>
+      <div class="img-card"><img src="TDH01 (9).png" alt="台灯-TDH01-09" onload="this.classList.add('loaded')"><div class="img-label">台灯-TDH01-09</div></div>
+      <div class="img-card"><img src="TDH01 (10).png" alt="台灯-TDH01-10" onload="this.classList.add('loaded')"><div class="img-label">台灯-TDH01-10</div></div>
+      <div class="img-card ratio-2-2"><img src="TDH01 (11).png" alt="台灯-TDH01-11" onload="this.classList.add('loaded')"><div class="img-label">台灯-TDH01-11</div></div>
+      <div class="img-card ratio-2-2"><img src="TDH01 (12).png" alt="台灯-TDH01-12" onload="this.classList.add('loaded')"><div class="img-label">台灯-TDH01-12</div></div>
+      <div class="img-card ratio-2-2"><img src="TDH01 (13).png" alt="台灯-TDH01-13" onload="this.classList.add('loaded')"><div class="img-label">台灯-TDH01-13</div></div>
+      <div class="img-card ratio-2-2"><img src="TDH01 (14).png" alt="台灯-TDH01-14" onload="this.classList.add('loaded')"><div class="img-label">台灯-TDH01-14</div></div>
+      <div class="img-card ratio-2-2"><img src="TDH01 (15).png" alt="台灯-TDH01-15" onload="this.classList.add('loaded')"><div class="img-label">台灯-TDH01-15</div></div>
+      <div class="img-card ratio-2-2"><img src="TDH01 (16).png" alt="台灯-TDH01-16" onload="this.classList.add('loaded')"><div class="img-label">台灯-TDH01-16</div></div>
+      <div class="img-card ratio-2-2"><img src="TDH01 (17).png" alt="台灯-TDH01-17" onload="this.classList.add('loaded')"><div class="img-label">台灯-TDH01-17</div></div>
+      <div class="img-card ratio-2-2"><img src="TDH01 (18).png" alt="台灯-TDH01-18" onload="this.classList.add('loaded')"><div class="img-label">台灯-TDH01-18</div></div>
+      <div class="img-card ratio-2-2"><img src="TDH01 (19).png" alt="台灯-TDH01-19" onload="this.classList.add('loaded')"><div class="img-label">台灯-TDH01-19</div></div>
+      <div class="img-card ratio-2-2"><img src="TDH01 (20).png" alt="台灯-TDH01-20" onload="this.classList.add('loaded')"><div class="img-label">台灯-TDH01-20</div></div>
+      <div class="img-card"><img src="TDH4 (1).png" alt="台灯-TDH4-01" onload="this.classList.add('loaded')"><div class="img-label">台灯-TDH4-01</div></div>
+      <div class="img-card"><img src="TDH4 (2).png" alt="台灯-TDH4-02" onload="this.classList.add('loaded')"><div class="img-label">台灯-TDH4-02</div></div>
+      <div class="img-card"><img src="TDH4 (3).png" alt="台灯-TDH4-03" onload="this.classList.add('loaded')"><div class="img-label">台灯-TDH4-03</div></div>
+      <div class="img-card"><img src="TDH4 (4).png" alt="台灯-TDH4-04" onload="this.classList.add('loaded')"><div class="img-label">台灯-TDH4-04</div></div>
+      <div class="img-card"><img src="TDH4 (5).png" alt="台灯-TDH4-05" onload="this.classList.add('loaded')"><div class="img-label">台灯-TDH4-05</div></div>
+      <div class="img-card"><img src="TDH4 (6).png" alt="台灯-TDH4-06" onload="this.classList.add('loaded')"><div class="img-label">台灯-TDH4-06</div></div>
+      <div class="img-card"><img src="TDH4 (7).png" alt="台灯-TDH4-07" onload="this.classList.add('loaded')"><div class="img-label">台灯-TDH4-07</div></div>
+      <div class="img-card"><img src="TDH4 (8).png" alt="台灯-TDH4-08" onload="this.classList.add('loaded')"><div class="img-label">台灯-TDH4-08</div></div>
+      <div class="img-card"><img src="TDH4 (9).png" alt="台灯-TDH4-09" onload="this.classList.add('loaded')"><div class="img-label">台灯-TDH4-09</div></div>
+      <div class="img-card"><img src="TDH4 (10).png" alt="台灯-TDH4-10" onload="this.classList.add('loaded')"><div class="img-label">台灯-TDH4-10</div></div>
+      <div class="img-card ratio-2-2"><img src="TDH4 (11).png" alt="台灯-TDH4-11" onload="this.classList.add('loaded')"><div class="img-label">台灯-TDH4-11</div></div>
+      <div class="img-card ratio-2-2"><img src="TDH4 (12).png" alt="台灯-TDH4-12" onload="this.classList.add('loaded')"><div class="img-label">台灯-TDH4-12</div></div>
+      <div class="img-card ratio-2-2"><img src="TDH4 (13).png" alt="台灯-TDH4-13" onload="this.classList.add('loaded')"><div class="img-label">台灯-TDH4-13</div></div>
+      <div class="img-card ratio-2-2"><img src="TDH4 (14).png" alt="台灯-TDH4-14" onload="this.classList.add('loaded')"><div class="img-label">台灯-TDH4-14</div></div>
+      <div class="img-card ratio-2-2"><img src="TDH4 (15).png" alt="台灯-TDH4-15" onload="this.classList.add('loaded')"><div class="img-label">台灯-TDH4-15</div></div>
+      <div class="img-card ratio-2-2"><img src="TDH4 (16).png" alt="台灯-TDH4-16" onload="this.classList.add('loaded')"><div class="img-label">台灯-TDH4-16</div></div>
+      <div class="img-card ratio-2-2"><img src="TDH4 (17).png" alt="台灯-TDH4-17" onload="this.classList.add('loaded')"><div class="img-label">台灯-TDH4-17</div></div>
+      <div class="img-card ratio-2-2"><img src="TDH4 (18).png" alt="台灯-TDH4-18" onload="this.classList.add('loaded')"><div class="img-label">台灯-TDH4-18</div></div>
+      <div class="img-card ratio-2-2"><img src="TDH4 (19).png" alt="台灯-TDH4-19" onload="this.classList.add('loaded')"><div class="img-label">台灯-TDH4-19</div></div>
+      <div class="img-card ratio-2-2"><img src="TDH4 (20).png" alt="台灯-TDH4-20" onload="this.classList.add('loaded')"><div class="img-label">台灯-TDH4-20</div></div>
     </div>
   </div>
 
-  <!-- 2. 落地灯产品组（50张，20-30为2.2:1） -->
+  <!-- 落地灯 30张 -->
   <div class="product-group" data-product="落地灯">
     <h3 class="product-group-title">落地灯</h3>
     <div class="img-grid">
-      <div class="img-card">
-        <img src="LDT02E (1).png" alt="落地灯-LDT02E-01">
-        <div class="img-label">落地灯-LDT02E-01</div>
-      </div>
-      <div class="img-card">
-        <img src="LDT02E (2).png" alt="落地灯-LDT02E-02">
-        <div class="img-label">落地灯-LDT02E-02</div>
-      </div>
-      <div class="img-card">
-        <img src="LDT02E (3).png" alt="落地灯-LDT02E-03">
-        <div class="img-label">落地灯-LDT02E-03</div>
-      </div>
-      <div class="img-card">
-        <img src="LDT02E (4).png" alt="落地灯-LDT02E-04">
-        <div class="img-label">落地灯-LDT02E-04</div>
-      </div>
-      <div class="img-card">
-        <img src="LDT02E (5).png" alt="落地灯-LDT02E-05">
-        <div class="img-label">落地灯-LDT02E-05</div>
-      </div>
-      <div class="img-card">
-        <img src="LDT02E (6).png" alt="落地灯-LDT02E-06">
-        <div class="img-label">落地灯-LDT02E-06</div>
-      </div>
-      <div class="img-card">
-        <img src="LDT02E (7).png" alt="落地灯-LDT02E-07">
-        <div class="img-label">落地灯-LDT02E-07</div>
-      </div>
-      <div class="img-card">
-        <img src="LDT02E (8).png" alt="落地灯-LDT02E-08">
-        <div class="img-label">落地灯-LDT02E-08</div>
-      </div>
-      <div class="img-card">
-        <img src="LDT02E (9).png" alt="落地灯-LDT02E-09">
-        <div class="img-label">落地灯-LDT02E-09</div>
-      </div>
-      <div class="img-card">
-        <img src="LDT02E (10).png" alt="落地灯-LDT02E-10">
-        <div class="img-label">落地灯-LDT02E-10</div>
-      </div>
-      <div class="img-card">
-        <img src="LDT02E (11).png" alt="落地灯-LDT02E-11">
-        <div class="img-label">落地灯-LDT02E-11</div>
-      </div>
-      <div class="img-card">
-        <img src="LDT02E (12).png" alt="落地灯-LDT02E-12">
-        <div class="img-label">落地灯-LDT02E-12</div>
-      </div>
-      <div class="img-card">
-        <img src="LDT02E (13).png" alt="落地灯-LDT02E-13">
-        <div class="img-label">落地灯-LDT02E-13</div>
-      </div>
-      <div class="img-card">
-        <img src="LDT02E (14).png" alt="落地灯-LDT02E-14">
-        <div class="img-label">落地灯-LDT02E-14</div>
-      </div>
-      <div class="img-card">
-        <img src="LDT02E (15).png" alt="落地灯-LDT02E-15">
-        <div class="img-label">落地灯-LDT02E-15</div>
-      </div>
-      <div class="img-card">
-        <img src="LDT02E (16).png" alt="落地灯-LDT02E-16">
-        <div class="img-label">落地灯-LDT02E-16</div>
-      </div>
-      <div class="img-card">
-        <img src="LDT02E (17).png" alt="落地灯-LDT02E-17">
-        <div class="img-label">落地灯-LDT02E-17</div>
-      </div>
-      <div class="img-card">
-        <img src="LDT02E (18).png" alt="落地灯-LDT02E-18">
-        <div class="img-label">落地灯-LDT02E-18</div>
-      </div>
-      <div class="img-card">
-        <img src="LDT02E (19).png" alt="落地灯-LDT02E-19">
-        <div class="img-label">落地灯-LDT02E-19</div>
-      </div>
-      <div class="img-card ratio-2-2">
-        <img src="LDT02E (20).png" alt="落地灯-LDT02E-20">
-        <div class="img-label">落地灯-LDT02E-20</div>
-      </div>
-      <div class="img-card ratio-2-2">
-        <img src="LDT02E (21).png" alt="落地灯-LDT02E-21">
-        <div class="img-label">落地灯-LDT02E-21</div>
-      </div>
-      <div class="img-card ratio-2-2">
-        <img src="LDT02E (22).png" alt="落地灯-LDT02E-22">
-        <div class="img-label">落地灯-LDT02E-22</div>
-      </div>
-      <div class="img-card ratio-2-2">
-        <img src="LDT02E (23).png" alt="落地灯-LDT02E-23">
-        <div class="img-label">落地灯-LDT02E-23</div>
-      </div>
-      <div class="img-card ratio-2-2">
-        <img src="LDT02E (24).png" alt="落地灯-LDT02E-24">
-        <div class="img-label">落地灯-LDT02E-24</div>
-      </div>
-      <div class="img-card ratio-2-2">
-        <img src="LDT02E (25).png" alt="落地灯-LDT02E-25">
-        <div class="img-label">落地灯-LDT02E-25</div>
-      </div>
-      <div class="img-card ratio-2-2">
-        <img src="LDT02E (26).png" alt="落地灯-LDT02E-26">
-        <div class="img-label">落地灯-LDT02E-26</div>
-      </div>
-      <div class="img-card ratio-2-2">
-        <img src="LDT02E (27).png" alt="落地灯-LDT02E-27">
-        <div class="img-label">落地灯-LDT02E-27</div>
-      </div>
-      <div class="img-card ratio-2-2">
-        <img src="LDT02E (28).png" alt="落地灯-LDT02E-28">
-        <div class="img-label">落地灯-LDT02E-28</div>
-      </div>
-      <div class="img-card ratio-2-2">
-        <img src="LDT02E (29).png" alt="落地灯-LDT02E-29">
-        <div class="img-label">落地灯-LDT02E-29</div>
-      </div>
-      <div class="img-card ratio-2-2">
-        <img src="LDT02E (30).png" alt="落地灯-LDT02E-30">
-        <div class="img-label">落地灯-LDT02E-30</div>
-      </div>
-      <div class="img-card">
-        <img src="LDT02E (31).png" alt="落地灯-LDT02E-31">
-        <div class="img-label">落地灯-LDT02E-31</div>
-      </div>
-      <div class="img-card">
-        <img src="LDT02E (32).png" alt="落地灯-LDT02E-32">
-        <div class="img-label">落地灯-LDT02E-32</div>
-      </div>
-      <div class="img-card">
-        <img src="LDT02E (33).png" alt="落地灯-LDT02E-33">
-        <div class="img-label">落地灯-LDT02E-33</div>
-      </div>
-      <div class="img-card">
-        <img src="LDT02E (34).png" alt="落地灯-LDT02E-34">
-        <div class="img-label">落地灯-LDT02E-34</div>
-      </div>
-      <div class="img-card">
-        <img src="LDT02E (35).png" alt="落地灯-LDT02E-35">
-        <div class="img-label">落地灯-LDT02E-35</div>
-      </div>
-      <div class="img-card">
-        <img src="LDT02E (36).png" alt="落地灯-LDT02E-36">
-        <div class="img-label">落地灯-LDT02E-36</div>
-      </div>
-      <div class="img-card">
-        <img src="LDT02E (37).png" alt="落地灯-LDT02E-37">
-        <div class="img-label">落地灯-LDT02E-37</div>
-      </div>
-      <div class="img-card">
-        <img src="LDT02E (38).png" alt="落地灯-LDT02E-38">
-        <div class="img-label">落地灯-LDT02E-38</div>
-      </div>
-      <div class="img-card">
-        <img src="LDT02E (39).png" alt="落地灯-LDT02E-39">
-        <div class="img-label">落地灯-LDT02E-39</div>
-      </div>
-      <div class="img-card">
-        <img src="LDT02E (40).png" alt="落地灯-LDT02E-40">
-        <div class="img-label">落地灯-LDT02E-40</div>
-      </div>
-      <div class="img-card">
-        <img src="LDT02E (41).png" alt="落地灯-LDT02E-41">
-        <div class="img-label">落地灯-LDT02E-41</div>
-      </div>
-      <div class="img-card">
-        <img src="LDT02E (42).png" alt="落地灯-LDT02E-42">
-        <div class="img-label">落地灯-LDT02E-42</div>
-      </div>
-      <div class="img-card">
-        <img src="LDT02E (43).png" alt="落地灯-LDT02E-43">
-        <div class="img-label">落地灯-LDT02E-43</div>
-      </div>
-      <div class="img-card">
-        <img src="LDT02E (44).png" alt="落地灯-LDT02E-44">
-        <div class="img-label">落地灯-LDT02E-44</div>
-      </div>
-      <div class="img-card">
-        <img src="LDT02E (45).png" alt="落地灯-LDT02E-45">
-        <div class="img-label">落地灯-LDT02E-45</div>
-      </div>
-      <div class="img-card">
-        <img src="LDT02E (46).png" alt="落地灯-LDT02E-46">
-        <div class="img-label">落地灯-LDT02E-46</div>
-      </div>
-      <div class="img-card">
-        <img src="LDT02E (47).png" alt="落地灯-LDT02E-47">
-        <div class="img-label">落地灯-LDT02E-47</div>
-      </div>
-      <div class="img-card">
-        <img src="LDT02E (48).png" alt="落地灯-LDT02E-48">
-        <div class="img-label">落地灯-LDT02E-48</div>
-      </div>
-      <div class="img-card">
-        <img src="LDT02E (49).png" alt="落地灯-LDT02E-49">
-        <div class="img-label">落地灯-LDT02E-49</div>
-      </div>
-      <div class="img-card">
-        <img src="LDT02E (50).png" alt="落地灯-LDT02E-50">
-        <div class="img-label">落地灯-LDT02E-50</div>
-      </div>
+      <div class="img-card"><img src="LDT02E (1).png" alt="落地灯-LDT02E-01" onload="this.classList.add('loaded')"><div class="img-label">落地灯-LDT02E-01</div></div>
+      <div class="img-card"><img src="LDT02E (2).png" alt="落地灯-LDT02E-02" onload="this.classList.add('loaded')"><div class="img-label">落地灯-LDT02E-02</div></div>
+      <div class="img-card"><img src="LDT02E (3).png" alt="落地灯-LDT02E-03" onload="this.classList.add('loaded')"><div class="img-label">落地灯-LDT02E-03</div></div>
+      <div class="img-card"><img src="LDT02E (4).png" alt="落地灯-LDT02E-04" onload="this.classList.add('loaded')"><div class="img-label">落地灯-LDT02E-04</div></div>
+      <div class="img-card"><img src="LDT02E (5).png" alt="落地灯-LDT02E-05" onload="this.classList.add('loaded')"><div class="img-label">落地灯-LDT02E-05</div></div>
+      <div class="img-card"><img src="LDT02E (6).png" alt="落地灯-LDT02E-06" onload="this.classList.add('loaded')"><div class="img-label">落地灯-LDT02E-06</div></div>
+      <div class="img-card"><img src="LDT02E (7).png" alt="落地灯-LDT02E-07" onload="this.classList.add('loaded')"><div class="img-label">落地灯-LDT02E-07</div></div>
+      <div class="img-card"><img src="LDT02E (8).png" alt="落地灯-LDT02E-08" onload="this.classList.add('loaded')"><div class="img-label">落地灯-LDT02E-08</div></div>
+      <div class="img-card"><img src="LDT02E (9).png" alt="落地灯-LDT02E-09" onload="this.classList.add('loaded')"><div class="img-label">落地灯-LDT02E-09</div></div>
+      <div class="img-card"><img src="LDT02E (10).png" alt="落地灯-LDT02E-10" onload="this.classList.add('loaded')"><div class="img-label">落地灯-LDT02E-10</div></div>
+      <div class="img-card"><img src="LDT02E (11).png" alt="落地灯-LDT02E-11" onload="this.classList.add('loaded')"><div class="img-label">落地灯-LDT02E-11</div></div>
+      <div class="img-card"><img src="LDT02E (12).png" alt="落地灯-LDT02E-12" onload="this.classList.add('loaded')"><div class="img-label">落地灯-LDT02E-12</div></div>
+      <div class="img-card"><img src="LDT02E (13).png" alt="落地灯-LDT02E-13" onload="this.classList.add('loaded')"><div class="img-label">落地灯-LDT02E-13</div></div>
+      <div class="img-card"><img src="LDT02E (14).png" alt="落地灯-LDT02E-14" onload="this.classList.add('loaded')"><div class="img-label">落地灯-LDT02E-14</div></div>
+      <div class="img-card"><img src="LDT02E (15).png" alt="落地灯-LDT02E-15" onload="this.classList.add('loaded')"><div class="img-label">落地灯-LDT02E-15</div></div>
+      <div class="img-card"><img src="LDT02E (16).png" alt="落地灯-LDT02E-16" onload="this.classList.add('loaded')"><div class="img-label">落地灯-LDT02E-16</div></div>
+      <div class="img-card"><img src="LDT02E (17).png" alt="落地灯-LDT02E-17" onload="this.classList.add('loaded')"><div class="img-label">落地灯-LDT02E-17</div></div>
+      <div class="img-card"><img src="LDT02E (18).png" alt="落地灯-LDT02E-18" onload="this.classList.add('loaded')"><div class="img-label">落地灯-LDT02E-18</div></div>
+      <div class="img-card"><img src="LDT02E (19).png" alt="落地灯-LDT02E-19" onload="this.classList.add('loaded')"><div class="img-label">落地灯-LDT02E-19</div></div>
+      <div class="img-card ratio-2-2"><img src="LDT02E (20).png" alt="落地灯-LDT02E-20" onload="this.classList.add('loaded')"><div class="img-label">落地灯-LDT02E-20</div></div>
+      <div class="img-card ratio-2-2"><img src="LDT02E (21).png" alt="落地灯-LDT02E-21" onload="this.classList.add('loaded')"><div class="img-label">落地灯-LDT02E-21</div></div>
+      <div class="img-card ratio-2-2"><img src="LDT02E (22).png" alt="落地灯-LDT02E-22" onload="this.classList.add('loaded')"><div class="img-label">落地灯-LDT02E-22</div></div>
+      <div class="img-card ratio-2-2"><img src="LDT02E (23).png" alt="落地灯-LDT02E-23" onload="this.classList.add('loaded')"><div class="img-label">落地灯-LDT02E-23</div></div>
+      <div class="img-card ratio-2-2"><img src="LDT02E (24).png" alt="落地灯-LDT02E-24" onload="this.classList.add('loaded')"><div class="img-label">落地灯-LDT02E-24</div></div>
+      <div class="img-card ratio-2-2"><img src="LDT02E (25).png" alt="落地灯-LDT02E-25" onload="this.classList.add('loaded')"><div class="img-label">落地灯-LDT02E-25</div></div>
+      <div class="img-card ratio-2-2"><img src="LDT02E (26).png" alt="落地灯-LDT02E-26" onload="this.classList.add('loaded')"><div class="img-label">落地灯-LDT02E-26</div></div>
+      <div class="img-card ratio-2-2"><img src="LDT02E (27).png" alt="落地灯-LDT02E-27" onload="this.classList.add('loaded')"><div class="img-label">落地灯-LDT02E-27</div></div>
+      <div class="img-card ratio-2-2"><img src="LDT02E (28).png" alt="落地灯-LDT02E-28" onload="this.classList.add('loaded')"><div class="img-label">落地灯-LDT02E-28</div></div>
+      <div class="img-card ratio-2-2"><img src="LDT02E (29).png" alt="落地灯-LDT02E-29" onload="this.classList.add('loaded')"><div class="img-label">落地灯-LDT02E-29</div></div>
+      <div class="img-card ratio-2-2"><img src="LDT02E (30).png" alt="落地灯-LDT02E-30" onload="this.classList.add('loaded')"><div class="img-label">落地灯-LDT02E-30</div></div>
     </div>
   </div>
 
-  <!-- 3. 智能手表产品组 -->
-  <div class="product-group" data-product="智能手表">
-    <h3 class="product-group-title">智能手表</h3>
+  <!-- 产品渲染 43张 -->
+  <div class="product-group" data-product="产品渲染">
+    <h3 class="product-group-title">产品渲染</h3>
     <div class="img-grid">
-      <div class="img-card">
-        <img src="smart_watch01.jpg" alt="智能手表-设计图01">
-        <div class="img-label">智能手表-设计图01</div>
+      <div class="img-card"><img src="XRTP (1).png" alt="产品渲染-XRTP-01" onload="this.classList.add('loaded')"><div class="img-label">产品渲染-XRTP-01</div></div>
+      <div class="img-card"><img src="XRTP (2).png" alt="产品渲染-XRTP-02" onload="this.classList.add('loaded')"><div class="img-label">产品渲染-XRTP-02</div></div>
+      <div class="img-card"><img src="XRTP (3).png" alt="产品渲染-XRTP-03" onload="this.classList.add('loaded')"><div class="img-label">产品渲染-XRTP-03</div></div>
+      <div class="img-card"><img src="XRTP (4).png" alt="产品渲染-XRTP-04" onload="this.classList.add('loaded')"><div class="img-label">产品渲染-XRTP-04</div></div>
+      <div class="img-card"><img src="XRTP (5).png" alt="产品渲染-XRTP-05" onload="this.classList.add('loaded')"><div class="img-label">产品渲染-XRTP-05</div></div>
+      <div class="img-card"><img src="XRTP (6).png" alt="产品渲染-XRTP-06" onload="this.classList.add('loaded')"><div class="img-label">产品渲染-XRTP-06</div></div>
+      <div class="img-card"><img src="XRTP (7).png" alt="产品渲染-XRTP-07" onload="this.classList.add('loaded')"><div class="img-label">产品渲染-XRTP-07</div></div>
+      <div class="img-card"><img src="XRTP (8).png" alt="产品渲染-XRTP-08" onload="this.classList.add('loaded')"><div class="img-label">产品渲染-XRTP-08</div></div>
+      <div class="img-card"><img src="XRTP (9).png" alt="产品渲染-XRTP-09" onload="this.classList.add('loaded')"><div class="img-label">产品渲染-XRTP-09</div></div>
+      <div class="img-card"><img src="XRTP (10).png" alt="产品渲染-XRTP-10" onload="this.classList.add('loaded')"><div class="img-label">产品渲染-XRTP-10</div></div>
+      <div class="img-card"><img src="XRTP (11).png" alt="产品渲染-XRTP-11" onload="this.classList.add('loaded')"><div class="img-label">产品渲染-XRTP-11</div></div>
+      <div class="img-card"><img src="XRTP (12).png" alt="产品渲染-XRTP-12" onload="this.classList.add('loaded')"><div class="img-label">产品渲染-XRTP-12</div></div>
+      <div class="img-card"><img src="XRTP (13).png" alt="产品渲染-XRTP-13" onload="this.classList.add('loaded')"><div class="img-label">产品渲染-XRTP-13</div></div>
+      <div class="img-card"><img src="XRTP (14).png" alt="产品渲染-XRTP-14" onload="this.classList.add('loaded')"><div class="img-label">产品渲染-XRTP-14</div></div>
+      <div class="img-card"><img src="XRTP (15).png" alt="产品渲染-XRTP-15" onload="this.classList.add('loaded')"><div class="img-label">产品渲染-XRTP-15</div></div>
+      <div class="img-card"><img src="XRTP (16).png" alt="产品渲染-XRTP-16" onload="this.classList.add('loaded')"><div class="img-label">产品渲染-XRTP-16</div></div>
+      <div class="img-card"><img src="XRTP (17).png" alt="产品渲染-XRTP-17" onload="this.classList.add('loaded')"><div class="img-label">产品渲染-XRTP-17</div></div>
+      <div class="img-card"><img src="XRTP (18).png" alt="产品渲染-XRTP-18" onload="this.classList.add('loaded')"><div class="img-label">产品渲染-XRTP-18</div></div>
+      <div class="img-card"><img src="XRTP (19).png" alt="产品渲染-XRTP-19" onload="this.classList.add('loaded')"><div class="img-label">产品渲染-XRTP-19</div></div>
+      <div class="img-card"><img src="XRTP (20).png" alt="产品渲染-XRTP-20" onload="this.classList.add('loaded')"><div class="img-label">产品渲染-XRTP-20</div></div>
+      <div class="img-card"><img src="XRTP (21).png" alt="产品渲染-XRTP-21" onload="this.classList.add('loaded')"><div class="img-label">产品渲染-XRTP-21</div></div>
+      <div class="img-card"><img src="XRTP (22).png" alt="产品渲染-XRTP-22" onload="this.classList.add('loaded')"><div class="img-label">产品渲染-XRTP-22</div></div>
+      <div class="img-card"><img src="XRTP (23).png" alt="产品渲染-XRTP-23" onload="this.classList.add('loaded')"><div class="img-label">产品渲染-XRTP-23</div></div>
+      <div class="img-card"><img src="XRTP (24).png" alt="产品渲染-XRTP-24" onload="this.classList.add('loaded')"><div class="img-label">产品渲染-XRTP-24</div></div>
+      <div class="img-card"><img src="XRTP (25).png" alt="产品渲染-XRTP-25" onload="this.classList.add('loaded')"><div class="img-label">产品渲染-XRTP-25</div></div>
+      <div class="img-card"><img src="XRTP (26).png" alt="产品渲染-XRTP-26" onload="this.classList.add('loaded')"><div class="img-label">产品渲染-XRTP-26</div></div>
+      <div class="img-card"><img src="XRTP (27).png" alt="产品渲染-XRTP-27" onload="this.classList.add('loaded')"><div class="img-label">产品渲染-XRTP-27</div></div>
+      <div class="img-card"><img src="XRTP (28).png" alt="产品渲染-XRTP-28" onload="this.classList.add('loaded')"><div class="img-label">产品渲染-XRTP-28</div></div>
+      <div class="img-card"><img src="XRTP (29).png" alt="产品渲染-XRTP-29" onload="this.classList.add('loaded')"><div class="img-label">产品渲染-XRTP-29</div></div>
+      <div class="img-card"><img src="XRTP (30).png" alt="产品渲染-XRTP-30" onload="this.classList.add('loaded')"><div class="img-label">产品渲染-XRTP-30</div></div>
+      <div class="img-card"><img src="XRTP (31).png" alt="产品渲染-XRTP-31" onload="this.classList.add('loaded')"><div class="img-label">产品渲染-XRTP-31</div></div>
+      <div class="img-card"><img src="XRTP (32).png" alt="产品渲染-XRTP-32" onload="this.classList.add('loaded')"><div class="img-label">产品渲染-XRTP-32</div></div>
+      <div class="img-card"><img src="XRTP (33).png" alt="产品渲染-XRTP-33" onload="this.classList.add('loaded')"><div class="img-label">产品渲染-XRTP-33</div></div>
+      <div class="img-card"><img src="XRTP (34).png" alt="产品渲染-XRTP-34" onload="this.classList.add('loaded')"><div class="img-label">产品渲染-XRTP-34</div></div>
+      <div class="img-card"><img src="XRTP (35).png" alt="产品渲染-XRTP-35" onload="this.classList.add('loaded')"><div class="img-label">产品渲染-XRTP-35</div></div>
+      <div class="img-card"><img src="XRTP (36).png" alt="产品渲染-XRTP-36" onload="this.classList.add('loaded')"><div class="img-label">产品渲染-XRTP-36</div></div>
+      <div class="img-card"><img src="XRTP (37).png" alt="产品渲染-XRTP-37" onload="this.classList.add('loaded')"><div class="img-label">产品渲染-XRTP-37</div></div>
+      <div class="img-card"><img src="XRTP (38).png" alt="产品渲染-XRTP-38" onload="this.classList.add('loaded')"><div class="img-label">产品渲染-XRTP-38</div></div>
+      <div class="img-card"><img src="XRTP (39).png" alt="产品渲染-XRTP-39" onload="this.classList.add('loaded')"><div class="img-label">产品渲染-XRTP-39</div></div>
+      <div class="img-card"><img src="XRTP (40).png" alt="产品渲染-XRTP-40" onload="this.classList.add('loaded')"><div class="img-label">产品渲染-XRTP-40</div></div>
+    </div>
+  </div>
+
+  <!-- 视频作品 6个 -->
+  <div class="product-group" data-product="视频作品">
+    <h3 class="product-group-title">视频作品</h3>
+    <div class="video-grid">
+      <div class="video-item">
+        <video controls preload="metadata">
+          <source src="SP1.mp4" type="video/mp4">
+          您的浏览器不支持HTML5视频播放，请升级浏览器
+        </video>
       </div>
-      <div class="img-card">
-        <img src="smart_watch02.jpg" alt="智能手表-设计图02">
-        <div class="img-label">智能手表-设计图02</div>
+      <div class="video-item">
+        <video controls preload="metadata">
+          <source src="SP2.mp4" type="video/mp4">
+          您的浏览器不支持HTML5视频播放，请升级浏览器
+        </video>
       </div>
-      <div class="img-card">
-        <img src="smart_watch03.jpg" alt="智能手表-设计图03">
-        <div class="img-label">智能手表-设计图03</div>
+      <div class="video-item">
+        <video controls preload="metadata">
+          <source src="SP3.mp4" type="video/mp4">
+          您的浏览器不支持HTML5视频播放，请升级浏览器
+        </video>
+      </div>
+      <div class="video-item">
+        <video controls preload="metadata">
+          <source src="SP4.mp4" type="video/mp4">
+          您的浏览器不支持HTML5视频播放，请升级浏览器
+        </video>
+      </div>
+      <div class="video-item">
+        <video controls preload="metadata">
+          <source src="SP5.mp4" type="video/mp4">
+          您的浏览器不支持HTML5视频播放，请升级浏览器
+        </video>
+      </div>
+      <div class="video-item">
+        <video controls preload="metadata">
+          <source src="SP6.mp4" type="video/mp4">
+          您的浏览器不支持HTML5视频播放，请升级浏览器
+        </video>
       </div>
     </div>
   </div>
 
-  <!-- 4. 吊扇产品组 -->
-  <div class="product-group" data-product="吊扇">
-    <h3 class="product-group-title">吊扇</h3>
-    <div class="img-grid">
-      <div class="img-card">
-        <img src="ceiling_fan01.jpg" alt="吊扇-设计图01">
-        <div class="img-label">吊扇-设计图01</div>
-      </div>
-      <div class="img-card">
-        <img src="ceiling_fan02.jpg" alt="吊扇-设计图02">
-        <div class="img-label">吊扇-设计图02</div>
-      </div>
-      <div class="img-card">
-        <img src="ceiling_fan03.jpg" alt="吊扇-设计图03">
-        <div class="img-label">吊扇-设计图03</div>
-      </div>
-      <div class="img-card">
-        <img src="ceiling_fan04.jpg" alt="吊扇-设计图04">
-        <div class="img-label">吊扇-设计图04</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- 5. 充电器产品组 -->
-  <div class="product-group" data-product="充电器">
-    <h3 class="product-group-title">充电器</h3>
-    <div class="img-grid">
-      <div class="img-card">
-        <img src="charger01.jpg" alt="充电器-设计图01">
-        <div class="img-label">充电器-设计图01</div>
-      </div>
-      <div class="img-card">
-        <img src="charger02.jpg" alt="充电器-设计图02">
-        <div class="img-label">充电器-设计图02</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- 6. 其它产品组 -->
+  <!-- 其它 105张 QTZT (1) ~ (105) -->
   <div class="product-group" data-product="其它">
     <h3 class="product-group-title">其它</h3>
     <div class="img-grid">
-      <div class="img-card">
-        <img src="other01.jpg" alt="其它产品-设计图01">
-        <div class="img-label">其它产品-设计图01</div>
-      </div>
-      <div class="img-card">
-        <img src="other02.jpg" alt="其它产品-设计图02">
-        <div class="img-label">其它产品-设计图02</div>
-      </div>
-      <div class="img-card">
-        <img src="other03.jpg" alt="其它产品-设计图03">
-        <div class="img-label">其它产品-设计图03</div>
-      </div>
-    </div>
+      <div class="img-card"><img src="QTZT (1).png" alt="其它-QTZT-01" onload="this.classList.add('loaded')"><div class="img-label">其它-QTZT-01</div></div>
+      <div class="img-card"><img src="QTZT (2).png" alt="其它-QTZT-02" onload="this.classList.add('loaded')"><div class="img-label">其它-QTZT-02</div></div>
+      <div class="img-card"><img src="QTZT (3).png" alt="其它-QTZT-03" onload="this.classList.add('loaded')"><div class="img-label">其它-QTZT-03</div></div>
+      <div class="img-card"><img src="QTZT (4).png" alt="其它-QTZT-04" onload="this.classList.add('loaded')"><div class="img-label">其它-QTZT-04</div></div>
+      <div class="img-card"><img src="QTZT (5).png" alt="其它-QTZT-05" onload="this.classList.add('loaded')"><div class="img-label">其它-QTZT-05</div></div>
+      <div class="img-card"><img src="QTZT (6).png" alt="其它-QTZT-06" onload="this.classList.add('loaded')"><div class="img-label">其它-QTZT-06</div></div>
+      <div class="img-card"><img src="QTZT (7).png" alt="其它-QTZT-07" onload="this.classList.add('loaded')"><div class="img-label">其它-QTZT-07</div></div>
+      <div class="img-card"><img src="QTZT (8).png" alt="其它-QTZT-08" onload="this.classList.add('loaded')"><div class="img-label">其它-QTZT-08</div></div>
+      <div class="img-card"><img src="QTZT (9).png" alt="其它-QTZT-09" onload="this.classList.add('loaded')"><div class="img-label">其它-QTZT-09</div></div>
+      <div class="img-card"><img src="QTZT (10).png" alt="其它-QTZT-10" onload="this.classList.add('loaded')"><div class="img-label">其它-QTZT-10</div></div>
+      <div class="img-card"><img src="QTZT (11).png" alt="其它-QTZT-11" onload="this.classList.add('loaded')"><div class="img-label">其它-QTZT-11</div></div>
+      <div class="img-card"><img src="QTZT (12).png" alt="其它-QTZT-12" onload="this.classList.add('loaded')"><div class="img-label">其它-QTZT-12</div></div>
+      <div class="img-card"><img src="QTZT (13).png" alt="其它-QTZT-13" onload="this.classList.add('loaded')"><div class="img-label">其它-QTZT-13</div></div>
+      <div class="img-card"><img src="QTZT (14).png" alt="其它-QTZT-14" onload="this.classList.add('loaded')"><div class="img-label">其它-QTZT-14</div></div>
+      <div class="img-card"><img src="QTZT (15).png" alt="其它-QTZT-15" onload="this.classList.add('loaded')"><div class="img-label">其它-QTZT-15</div></div>
+      <div class="img-card"><img src="QTZT (16).png" alt="其它-QTZT-16" onload="this.classList.add('loaded')"><div class="img-label">其它-QTZT-16</div></div>
+      <div class="img-card"><img src="QTZT (17).png" alt="其它-QTZT-17" onload="this.classList.add('loaded')"><div class="img-label">其它-QTZT-17</div></div>
+      <div class="img-card"><img src="QTZT (18).png" alt="其它-QTZT-18" onload="this.classList.add('loaded')"><div class="img-label">其它-QTZT-18</div></div>
+      <div class="img-card"><img src="QTZT (19).png" alt="其它-QTZT-19" onload="this.classList.add('loaded')"><div class="img-label">其它-QTZT-19</div></div>
+      <div class="img-card"><img src="QTZT (20).png" alt="其它-QTZT-20" onload="this.classList.add('loaded')"><div class="img-label">其它-QTZT-20</div></div>
+      <div class="img-card"><img src="QTZT (21).png" alt="其它-QTZT-21" onload="this.classList.add('loaded')"><div class="img-label">其它-QTZT-21</div></div>
+      <div class="img-card"><img src="QTZT (22).png" alt="其它-QTZT-22" onload="this.classList.add('loaded')"><div class="img-label">其它-QTZT-22</div></div>
+      <div class="img-card"><img src="QTZT (23).png" alt="其它-QTZT-23" onload="this.classList.add('loaded')"><div class="img-label">其它-QTZT-23</div></div>
+      <div class="img-card"><img src="QTZT (24).png" alt="其它-QTZT-24" onload="this.classList.add('loaded')"><div class="img-label">其它-QTZT-24</div></div>
+      <div class="img-card"><img src="QTZT (25).png" alt="其它-QTZT-25" onload="this.classList.add('loaded')"><div class="img-label">其它-QTZT-25</div></div>
+      <div class="img-card"><img src="QTZT (26).png" alt="其它-QTZT-26" onload="this.classList.add('loaded')"><div class="img-label">其它-QTZT-26</div></div>
+      <div class="img-card"><img src="QTZT (27).png" alt="其它-QTZT-27" onload="this.classList.add('loaded')"><div class="img-label">其它-QTZT-27</div></div>
+      <div class="img-card"><img src="QTZT (28).png" alt="其它-QTZT-28" onload="this.classList.add('loaded')"><div class="img-label">其它-QTZT-28</div></div>
+      <div class="img-card"><img src="QTZT (29).png" alt="其它-QTZT-29" onload="this.classList.add('loaded')"><div class="img-label">其它-QTZT-29</div></div>
+      <div class="img-card"><img src="QTZT (30).png" alt="其它-QTZT-30" onload="this.classList.add('loaded')"><div class="img-label">其它-QTZT-30</div></div>
+      <div class="img-card"><img src="QTZT (31).png" alt="其它-QTZT-31" onload="this.classList.add('loaded')"><div class="img-label">其它-QTZT-31</div></div>
+      <div class="img-card"><img src="QTZT (32).png" alt="其它-QTZT-32" onload="this.classList.add('loaded')"><div class="img-label">其它-QTZT-32</div></div>
+      <div class="img-card"><img src="QTZT (33).png" alt="其它-QTZT-33" onload="this.classList.add('loaded')"><div class="img-label">其它-QTZT-33</div></div>
+      <div class="img-card"><img src="QTZT (34).png" alt="其它-QTZT-34" onload="this.classList.add('loaded')"><div class="img-label">其它-QTZT-34</div></div>
+      <div class="img-card"><img src="QTZT (35).png" alt="其它-QTZT-35" onload="this.classList.add('loaded')"><div class="img-label">其它-QTZT-35</div></div>
+      <div class="img-card"><img src="QTZT (36).png" alt="其它-QTZT-36" onload="this.classList.add('loaded')"><div class="img-label">其它-QTZT-36</div></div>
+      <div class="img-card"><img src="QTZT (37).png" alt="其它-QTZT-37" onload="this.classList.add('loaded')"><div class="img-label">其它-QTZT-37</div></div>
+      <div class="img-card"><img src="QTZT (38).png" alt="其它-QTZT-38" onload="this.classList.add('loaded')"><div class="img-label">其它-QTZT-38</div></div>
+      <div class="img-card"><img src="QTZT (39).png" alt="其它-QTZT-39" onload="this.classList.add('loaded')"><div class="img-label">其它-QTZT-39</div></div>
+      <div class="img-card"><img src="QTZT (40).png" alt="其它-QTZT-40" onload="this.classList.add('loaded')"><div class="img-label">其它-QTZT-40</div></div>
+      <div class="img-card"><img src="QTZT (41).png" alt="其它-QTZT-41" onload="this.classList.add('loaded')"><div class="img-label">其它-QTZT-41</div></div>
+      <div class="img-card"><img src="QTZT (42).png" alt="其它-QTZT-42" onload="this.classList.add('loaded')"><div class="img-label">其它-QTZT-42</div></div>
+      <div class="img-card"><img src="QTZT (43).png" alt="其它-QTZT-43" onload="this.classList.add('loaded')"><div class="img-label">其它-QTZT-43</div></div>
+      <div class="img-card"><img src="QTZT (44).png" alt="其它-QTZT-44" onload="this.classList.add('loaded')"><div class="img-label">其它-QTZT-44</div></div>
+      <div class="img-card"><img src="QTZT (45).png" alt="其它-QTZT-45" onload="this.classList.add('loaded')"><div class="img-label">其它-QTZT-45</div></div>
+      <div class="img-card"><img src="QTZT (46).png" alt="其它-QTZT-46" onload="this.classList.add('loaded')"><div class="img-label">其它-QTZT-46</div></div>
+      <div class="img-card"><img src="QTZT (47).png" alt="其它-QTZT-47" onload="this.classList.add('loaded')"><div class="img-label">其它-QTZT-47</div></div>
+      <div class="img-card"><img src="QTZT (48).png" alt="其它-QTZT-48" onload="this.classList.add('loaded')"><div class="img-label">其它-QTZT-48</div></div>
+      <div class="img-card"><img src="QTZT (49).png" alt="其它-QTZT-49" onload="this.classList.add('loaded')"><div class="img-label">其它-QTZT-49</div></div>
+      <div class="img-card"><img src="QTZT (50).png" alt="其它-QTZT-50" onload="this.classList.add('loaded')"><div class="img-label">其它-QTZT-50</div></div>
+      <div class="img-card"><img src="QTZT (51).png" alt="其它-QTZT-51" onload="this.classList.add('loaded')"><div class="img-label">其它-QTZT-51</div></div>
+      <div class="img-card"><img src="QTZT (52).png" alt="其它-QTZT-52" onload="this.classList.add('loaded')"><div class="img-label">其它-QTZT-52</div></div>
+      <div class="img-card"><img src="QTZT (53).png" alt="其它-QTZT-53" onload="this.classList.add('loaded')"><div class="img-label">其它-QTZT-53</div></div>
+      <div class="img-card"><img src="QTZT (54).png" alt="其它-QTZT-54" onload="this.classList.add('loaded')"><div class="img-label">其它-QTZT-54</div></div>
+      <div class="img-card"><img src="QTZT (55).png" alt="其它-QTZT-55" onload="this.classList.add('loaded')"><div class="img-label">其它-QTZT-55</div></div>
+      <div class="img-card"><img src="QTZT (56).png" alt="其它-QTZT-56" onload="this.classList.add('loaded')"><div class="img-label">其它-QTZT-56</div></div>
+      <div class="img-card"><img src="QTZT (57).png" alt="其它-QTZT-57" onload="this.classList.add('loaded')"><div class="img-label">其它-QTZT-57</div></div>
+      <div class="img-card"><img src="QTZT (58).png" alt="其它-QTZT-58" onload="this.classList.add('loaded')"><div class="img-label">其它-QTZT-58</div></div>
+      <div class="img-card"><img src="QTZT (59).png" alt="其它-QTZT-59" onload="this.classList.add('loaded')"><div class="img-label">其它-QTZT-59</div></div>
+      <div class="img-card"><img src="QTZT (60).png" alt="其它-QTZT-60" onload="this.classList.add('loaded')"><div class="img-label">其它-QTZT-60</div></div>
+      <div class="img-card"><img src="QTZT (61).png" alt="其它-QTZT-61" onload="this.classList.add('loaded')"><div class="img-label">其它-QTZT-61</div></div>
+      <div class="img-card"><img src="QTZT (62).png" alt="其它-QTZT-62" onload="this.classList.add('loaded')"><div class="img-label">其它-QTZT-62</div></div>
+      <div class="img-card"><img src="QTZT (63).png" alt="其它-QTZT-63" onload="this.classList.add('loaded')"><div class="img-label">其它-QTZT-63</div></div>
+      <div class="img-card"><img src="QTZT (64).png" alt="其它-QTZT-64" onload="this.classList.add('loaded')"><div class="img-label">其它-QTZT-64</div></div>
+      <div class="img-card"><img src="QTZT (65).png" alt="其它-QTZT-65" onload="this.classList.add('loaded')"><div class="img-label">其它-QTZT-65</div></div>
+      <div class="img-card"><img src="QTZT (66).png" alt="其它-QTZT-66" onload="this.classList.add('loaded')"><div class="img-label">其它-QTZT-66</div></div>
+      <div class="img-card"><img src="QTZT (67).png" alt="其它-QTZT-67" onload="this.classList.add('loaded')"><div class="img-label">其它-QTZT-67</div></div>
+      <div class="img-card"><img src="QTZT (68).png" alt="其它-QTZT-68" onload="this.classList.add('loaded')"><div class="img-label">其它-QTZT-68</div></div>
+      <div class="img-card"><img src="QTZT (69).png" alt="其它-QTZT-69" onload="this.classList.add('loaded')"><div class="img-label">其它-QTZT-69</div></div>
+      <div class="img-card"><img src="QTZT (70).png" alt="其它-QTZT-70" onload="this.classList.add('loaded')"><div class="img-label">其它-QTZT-70</div></div>
+      <div class="img-card"><img src="QTZT (71).png" alt="其它-QTZT-71" onload="this.classList.add('loaded')"><div class="img-label">其它-QTZT-71</div></div>
+      <div class="img-card"><img src="QTZT (72).png" alt="其它-QTZT-72" onload="this.classList.add('loaded')"><div class="img-label">其它-QTZT-72</div></div>
+      <div class="img-card"><img src="QTZT (73).png" alt="其它-QTZT-73" onload="this.classList.add('loaded')"><div class="img-label">其它-QTZT-73</div></div>
+      <div class="img-card"><img src="QTZT (74).png" alt="其它-QTZT-74" onload="this.classList.add('loaded')"><div class="img-label">其它-QTZT-74</div></div>
+      <div class="img-card"><img src="QTZT (75).png" alt="其它-QTZT-75" onload="this.classList.add('loaded')"><div class="img-label">其它-QTZT-75</div></div>
+      <div class="img-card"><img src="QTZT (76).png" alt="其它-QTZT-76" onload="this.classList.add('loaded')"><div class="img-label">其它-QTZT-76</div></div>
+      <div class="img-card"><img src="QTZT (77).png" alt="其它-QTZT-77" onload="this.classList.add('loaded')"><div class="img-label">其它-QTZT-77</div></div>
+      <div class="img-card"><img src="QTZT (78).png" alt="其它-QTZT-78" onload="this.classList.add('loaded')"><div class="img-label">其它-QTZT-78</div></div>
+      <div class="img-card"><img src="QTZT (79).png" alt="其它-QTZT-79" onload="this.classList.add('loaded')"><div class="img-label">其它-QTZT-79</div></div>
+      <div class="img-card"><img src="QTZT (80).png" alt="其它-QTZT-80" onload="this.classList.add('loaded')"><div class="img-label">其它-QTZT-80</div></div>
+      <div class="img-card"><img src="QTZT (81).png" alt="其它-QTZT-81" onload="this.classList.add('loaded')"><div class="img-label">其它-QTZT-81</div></div>
+      <div class="img-card"><img src="QTZT (82).png" alt="其它-QTZT-82" onload="this.classList.add('loaded')"><div class="img-label">其它-QTZT-82</div></div>
+      <div class="img-card"><img src="QTZT (83).png" alt="其它-QTZT-83" onload="this.classList.add('loaded')"><div class="img-label">其它-QTZT-83</div></div>
+      <div class="img-card"><img src="QTZT (84).png" alt="其它-QTZT-84" onload="this.classList.add('loaded')"><div class="img-label">其它-QTZT-84</div></div>
+      <div class="img-card"><img src="QTZT (85).png" alt="其它-QTZT-85" onload="this.classList.add('loaded')"><div class="img-label">其它-QTZT-85</div></div>
+      <div class="img-card"><img src="QTZT (86).png" alt="其它-QTZT-86" onload="this.classList.add('loaded')"><div class="img-label">其它-QTZT-86</div></div>
+      <div class="img-card"><img src="QTZT (87).png" alt="其它-QTZT-87" onload="this.classList.add('loaded')"><div class="img-label">其它-QTZT-87</div></div>
+      <div class="img-card"><img src="QTZT (88).png" alt="其它-QTZT-88" onload="this.classList.add('loaded')"><div class="img-label">其它-QTZT-88</div></div>
+      <div class="img-card"><img src="QTZT (89).png" alt="其它-QTZT-89" onload="this.classList.add('loaded')"><div class="img-label">其它-QTZT-89</div></div>
+      <div class="img-card"><img src="QTZT (90).png" alt="其它-QTZT-90" onload="this.classList.add('loaded')"><div class="img-label">其它-QTZT-90</div></div>
+      <div class="img-card"><img src="QTZT (91).png" alt="其它-QTZT-91" onload="this.classList.add('loaded')"><div class="img-label">其它-QTZT-91</div></div>
+      <div class="img-card"><img src="QTZT (92).png" alt="其它-QTZT-92" onload="this.classList.add('loaded')"><div class="img-label">其它-QTZT-92</div></div>
+      <div class="img-card"><img src="QTZT (93).png" alt="其它-QTZT-93" onload="this.classList.add('loaded')"><div class="img-label">其它-QTZT-93</div></div>
+      <div class="img-card"><img src="QTZT (94).png" alt="其它-QTZT-94" onload="this.classList.add('loaded')"><div class="img-label">其它-QTZT-94</div></div>
+      <div class="img-card"><img src="QTZT (95).png" alt="其它-QTZT-95" onload="this.classList.add('loaded')"><div class="img-label">其它-QTZT-95</div></div>
+      <div class="img-card"><img src="QTZT (96).png" alt="其它-QTZT-96" onload="this.classList.add('loaded')"><div class="img-label">其它-QTZT-96</div></div>
+      <div class="img-card"><img src="QTZT (97).png" alt="其它-QTZT-97" onload="this.classList.add('loaded')"><div class="img-label">其它-QTZT-97</div></div>
+      <div class="img-card"><img src="QTZT (98).png" alt="其它-QTZT-98" onload="this.classList.add('loaded')"><div class="img-label">其它-QTZT-98</div></div>
+      <div class="img-card"><img src="QTZT (99).png" alt="其它-QTZT-99" onload="this.classList.add('loaded')"><div class="img-label">其它-QTZT-99</div></div>
+      <div class="img-card"><img src="QTZT (100).png" alt="其它-QTZT-100" onload="this.classList.add('loaded')"><div class="img-label">其它-QTZT-100</div></div>
+      <div class="img-card"><img src="QTZT (101).png" alt="其它-QTZT-101" onload="this.classList.add('loaded')"><div class="img-label">其它-QTZT-101</div></div>
+      <div class="img-card"><img src="QTZT (102).png" alt="其它-QTZT-102" onload="this.classList.add('loaded')"><div class="img-label">其它-QTZT-102</div></div>
+      <div class="img-card"><img src="QTZT (103).png" alt="其它-QTZT-103" onload="this.classList.add('loaded')"><div class="img-label">其它-QTZT-103</div></div>
+      <div class="img-card"><img src="QTZT (104).png" alt="其它-QTZT-104" onload="this.classList.add('loaded')"><div class="img-label">其它-QTZT-104</div></div>
+      <div class="img-card"><img src="QTZT (105).png" alt="其它-QTZT-105" onload="this.classList.add('loaded')"><div class="img-label">其它-QTZT-105</div></div>
+
+<!-- 新增 55 张横版 A+BF (1) ~ (55) -->
+    <div class="img-card ratio-2-2"><img src="A+BF (1).png"  alt="其它-A+BF-01" onload="this.classList.add('loaded')"><div class="img-label">其它-A+BF-01</div></div>
+    <div class="img-card ratio-2-2"><img src="A+BF (2).png"  alt="其它-A+BF-02" onload="this.classList.add('loaded')"><div class="img-label">其它-A+BF-02</div></div>
+    <div class="img-card ratio-2-2"><img src="A+BF (3).png"  alt="其它-A+BF-03" onload="this.classList.add('loaded')"><div class="img-label">其它-A+BF-03</div></div>
+    <div class="img-card ratio-2-2"><img src="A+BF (4).png"  alt="其它-A+BF-04" onload="this.classList.add('loaded')"><div class="img-label">其它-A+BF-04</div></div>
+    <div class="img-card ratio-2-2"><img src="A+BF (5).png"  alt="其它-A+BF-05" onload="this.classList.add('loaded')"><div class="img-label">其它-A+BF-05</div></div>
+    <div class="img-card ratio-2-2"><img src="A+BF (6).png"  alt="其它-A+BF-06" onload="this.classList.add('loaded')"><div class="img-label">其它-A+BF-06</div></div>
+    <div class="img-card ratio-2-2"><img src="A+BF (7).png"  alt="其它-A+BF-07" onload="this.classList.add('loaded')"><div class="img-label">其它-A+BF-07</div></div>
+    <div class="img-card ratio-2-2"><img src="A+BF (8).png"  alt="其它-A+BF-08" onload="this.classList.add('loaded')"><div class="img-label">其它-A+BF-08</div></div>
+    <div class="img-card ratio-2-2"><img src="A+BF (9).png"  alt="其它-A+BF-09" onload="this.classList.add('loaded')"><div class="img-label">其它-A+BF-09</div></div>
+    <div class="img-card ratio-2-2"><img src="A+BF (10).png" alt="其它-A+BF-10" onload="this.classList.add('loaded')"><div class="img-label">其它-A+BF-10</div></div>
+
+    <div class="img-card ratio-2-2"><img src="A+BF (11).png" alt="其它-A+BF-11" onload="this.classList.add('loaded')"><div class="img-label">其它-A+BF-11</div></div>
+    <div class="img-card ratio-2-2"><img src="A+BF (12).png" alt="其它-A+BF-12" onload="this.classList.add('loaded')"><div class="img-label">其它-A+BF-12</div></div>
+    <div class="img-card ratio-2-2"><img src="A+BF (13).png" alt="其它-A+BF-13" onload="this.classList.add('loaded')"><div class="img-label">其它-A+BF-13</div></div>
+    <div class="img-card ratio-2-2"><img src="A+BF (14).png" alt="其它-A+BF-14" onload="this.classList.add('loaded')"><div class="img-label">其它-A+BF-14</div></div>
+    <div class="img-card ratio-2-2"><img src="A+BF (15).png" alt="其它-A+BF-15" onload="this.classList.add('loaded')"><div class="img-label">其它-A+BF-15</div></div>
+    <div class="img-card ratio-2-2"><img src="A+BF (16).png" alt="其它-A+BF-16" onload="this.classList.add('loaded')"><div class="img-label">其它-A+BF-16</div></div>
+    <div class="img-card ratio-2-2"><img src="A+BF (17).png" alt="其它-A+BF-17" onload="this.classList.add('loaded')"><div class="img-label">其它-A+BF-17</div></div>
+    <div class="img-card ratio-2-2"><img src="A+BF (18).png" alt="其它-A+BF-18" onload="this.classList.add('loaded')"><div class="img-label">其它-A+BF-18</div></div>
+    <div class="img-card ratio-2-2"><img src="A+BF (19).png" alt="其它-A+BF-19" onload="this.classList.add('loaded')"><div class="img-label">其它-A+BF-19</div></div>
+    <div class="img-card ratio-2-2"><img src="A+BF (20).png" alt="其它-A+BF-20" onload="this.classList.add('loaded')"><div class="img-label">其它-A+BF-20</div></div>
+
+    <div class="img-card ratio-2-2"><img src="A+BF (21).png" alt="其它-A+BF-21" onload="this.classList.add('loaded')"><div class="img-label">其它-A+BF-21</div></div>
+    <div class="img-card ratio-2-2"><img src="A+BF (22).png" alt="其它-A+BF-22" onload="this.classList.add('loaded')"><div class="img-label">其它-A+BF-22</div></div>
+    <div class="img-card ratio-2-2"><img src="A+BF (23).png" alt="其它-A+BF-23" onload="this.classList.add('loaded')"><div class="img-label">其它-A+BF-23</div></div>
+    <div class="img-card ratio-2-2"><img src="A+BF (24).png" alt="其它-A+BF-24" onload="this.classList.add('loaded')"><div class="img-label">其它-A+BF-24</div></div>
+    <div class="img-card ratio-2-2"><img src="A+BF (25).png" alt="其它-A+BF-25" onload="this.classList.add('loaded')"><div class="img-label">其它-A+BF-25</div></div>
+    <div class="img-card ratio-2-2"><img src="A+BF (26).png" alt="其它-A+BF-26" onload="this.classList.add('loaded')"><div class="img-label">其它-A+BF-26</div></div>
+    <div class="img-card ratio-2-2"><img src="A+BF (27).png" alt="其它-A+BF-27" onload="this.classList.add('loaded')"><div class="img-label">其它-A+BF-27</div></div>
+    <div class="img-card ratio-2-2"><img src="A+BF (28).png" alt="其它-A+BF-28" onload="this.classList.add('loaded')"><div class="img-label">其它-A+BF-28</div></div>
+    <div class="img-card ratio-2-2"><img src="A+BF (29).png" alt="其它-A+BF-29" onload="this.classList.add('loaded')"><div class="img-label">其它-A+BF-29</div></div>
+    <div class="img-card ratio-2-2"><img src="A+BF (30).png" alt="其它-A+BF-30" onload="this.classList.add('loaded')"><div class="img-label">其它-A+BF-30</div></div>
+
+    <div class="img-card ratio-2-2"><img src="A+BF (31).png" alt="其它-A+BF-31" onload="this.classList.add('loaded')"><div class="img-label">其它-A+BF-31</div></div>
+    <div class="img-card ratio-2-2"><img src="A+BF (32).png" alt="其它-A+BF-32" onload="this.classList.add('loaded')"><div class="img-label">其它-A+BF-32</div></div>
+    <div class="img-card ratio-2-2"><img src="A+BF (33).png" alt="其它-A+BF-33" onload="this.classList.add('loaded')"><div class="img-label">其它-A+BF-33</div></div>
+    <div class="img-card ratio-2-2"><img src="A+BF (34).png" alt="其它-A+BF-34" onload="this.classList.add('loaded')"><div class="img-label">其它-A+BF-34</div></div>
+    <div class="img-card ratio-2-2"><img src="A+BF (35).png" alt="其它-A+BF-35" onload="this.classList.add('loaded')"><div class="img-label">其它-A+BF-35</div></div>
+    <div class="img-card ratio-2-2"><img src="A+BF (36).png" alt="其它-A+BF-36" onload="this.classList.add('loaded')"><div class="img-label">其它-A+BF-36</div></div>
+    <div class="img-card ratio-2-2"><img src="A+BF (37).png" alt="其它-A+BF-37" onload="this.classList.add('loaded')"><div class="img-label">其它-A+BF-37</div></div>
+    <div class="img-card ratio-2-2"><img src="A+BF (38).png" alt="其它-A+BF-38" onload="this.classList.add('loaded')"><div class="img-label">其它-A+BF-38</div></div>
+    <div class="img-card ratio-2-2"><img src="A+BF (39).png" alt="其它-A+BF-39" onload="this.classList.add('loaded')"><div class="img-label">其它-A+BF-39</div></div>
+    <div class="img-card ratio-2-2"><img src="A+BF (40).png" alt="其它-A+BF-40" onload="this.classList.add('loaded')"><div class="img-label">其它-A+BF-40</div></div>
+
+    <div class="img-card ratio-2-2"><img src="A+BF (41).png" alt="其它-A+BF-41" onload="this.classList.add('loaded')"><div class="img-label">其它-A+BF-41</div></div>
+    <div class="img-card ratio-2-2"><img src="A+BF (42).png" alt="其它-A+BF-42" onload="this.classList.add('loaded')"><div class="img-label">其它-A+BF-42</div></div>
+    <div class="img-card ratio-2-2"><img src="A+BF (43).png" alt="其它-A+BF-43" onload="this.classList.add('loaded')"><div class="img-label">其它-A+BF-43</div></div>
+    <div class="img-card ratio-2-2"><img src="A+BF (44).png" alt="其它-A+BF-44" onload="this.classList.add('loaded')"><div class="img-label">其它-A+BF-44</div></div>
+    <div class="img-card ratio-2-2"><img src="A+BF (45).png" alt="其它-A+BF-45" onload="this.classList.add('loaded')"><div class="img-label">其它-A+BF-45</div></div>
+    <div class="img-card ratio-2-2"><img src="A+BF (46).png" alt="其它-A+BF-46" onload="this.classList.add('loaded')"><div class="img-label">其它-A+BF-46</div></div>
+    <div class="img-card ratio-2-2"><img src="A+BF (47).png" alt="其它-A+BF-47" onload="this.classList.add('loaded')"><div class="img-label">其它-A+BF-47</div></div>
+    <div class="img-card ratio-2-2"><img src="A+BF (48).png" alt="其它-A+BF-48" onload="this.classList.add('loaded')"><div class="img-label">其它-A+BF-48</div></div>
+    <div class="img-card ratio-2-2"><img src="A+BF (49).png" alt="其它-A+BF-49" onload="this.classList.add('loaded')"><div class="img-label">其它-A+BF-49</div></div>
+    <div class="img-card ratio-2-2"><img src="A+BF (50).png" alt="其它-A+BF-50" onload="this.classList.add('loaded')"><div class="img-label">其它-A+BF-50</div></div>
+
+    <div class="img-card ratio-2-2"><img src="A+BF (51).png" alt="其它-A+BF-51" onload="this.classList.add('loaded')"><div class="img-label">其它-A+BF-51</div></div>
+    <div class="img-card ratio-2-2"><img src="A+BF (52).png" alt="其它-A+BF-52" onload="this.classList.add('loaded')"><div class="img-label">其它-A+BF-52</div></div>
+    <div class="img-card ratio-2-2"><img src="A+BF (53).png" alt="其它-A+BF-53" onload="this.classList.add('loaded')"><div class="img-label">其它-A+BF-53</div></div>
+    <div class="img-card ratio-2-2"><img src="A+BF (54).png" alt="其它-A+BF-54" onload="this.classList.add('loaded')"><div class="img-label">其它-A+BF-54</div></div>
+    <div class="img-card ratio-2-2"><img src="A+BF (55).png" alt="其它-A+BF-55" onload="this.classList.add('loaded')"><div class="img-label">其它-A+BF-55</div></div>
+
   </div>
+</div>
 </div>
 
 <!-- 图片放大层 -->
 <div class="lightbox" id="lightbox" onclick="closeLightbox()">
   <div class="lightbox-img-container" id="imgContainer">
-    <img id="lightbox-img" src="">
+    <img id="lightbox-img" src="" alt="放大查看的图片">
   </div>
   <div class="scale-tip" id="scaleTip">50%</div>
   <div class="operation-tip">滚轮缩放 | 鼠标拖拽移动 | ESC关闭</div>
 </div>
 
-<!-- 视频区域 -->
-<div class="video-section">
-  <h2>视频作品</h2>
-  <div class="video-grid">
-    <div class="video-item">
-      <video controls preload="metadata">
-        <source src="desk_lamp_video01.mp4" type="video/mp4">
-      </video>
-    </div>
-    <div class="video-item">
-      <video controls preload="metadata">
-        <source src="smart_watch_video01.mp4" type="video/mp4">
-      </video>
-    </div>
-    <div class="video-item">
-      <video controls preload="metadata">
-        <source src="ceiling_fan_video01.mp4" type="video/mp4">
-      </video>
-    </div>
-  </div>
-</div>
-
 <footer>© 2026 王青松 | 亚马逊多产品设计作品集</footer>
 
 <script>
-// 产品筛选逻辑
-const productBtns = document.querySelectorAll('.product-nav .nav-btn');
-const productGroups = document.querySelectorAll('.product-group');
-const imgCards = document.querySelectorAll('.img-card');
+// 分类筛选
+const btns = document.querySelectorAll('.nav-btn');
+const groups = document.querySelectorAll('.product-group');
+filter('全部');
 
-// 初始化显示全部产品
-filterProducts('全部');
-
-// 产品筛选按钮点击事件
-productBtns.forEach(btn => {
-  btn.addEventListener('click', () => {
-    productBtns.forEach(b => b.classList.remove('active'));
+btns.forEach(btn => {
+  btn.onclick = () => {
+    btns.forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
-    const product = btn.dataset.product;
-    filterProducts(product);
-  });
+    filter(btn.dataset.product);
+  };
 });
 
-// 产品筛选核心函数
-function filterProducts(product) {
-  productGroups.forEach(group => {
-    const groupProduct = group.dataset.product;
-    if (product === '全部' || groupProduct === product) {
-      group.classList.add('show');
-    } else {
-      group.classList.remove('show');
-    }
+function filter(cat) {
+  groups.forEach(g => {
+    g.classList.toggle('show', cat === '全部' || g.dataset.product === cat);
   });
 }
 
-// 图片放大交互逻辑
-const lightbox = document.getElementById('lightbox');
-const imgContainer = document.getElementById('imgContainer');
-const lightboxImg = document.getElementById('lightbox-img');
-const scaleTip = document.getElementById('scaleTip');
+// 图片放大
+const lb = document.getElementById('lightbox');
+const cont = document.getElementById('imgContainer');
+const lbImg = document.getElementById('lightbox-img');
+const st = document.getElementById('scaleTip');
+let scale = 0.5, drag = false, sx, sy, ox = 0, oy = 0;
 
-let currentScale = 0.5;
-let isDragging = false;
-let startX = 0, startY = 0, offsetX = 0, offsetY = 0;
-
-// 绑定所有图片的点击放大事件
-imgCards.forEach(card => {
-  const img = card.querySelector('img');
-  card.addEventListener('click', (e) => {
+document.querySelectorAll('.img-card').forEach(c => {
+  c.onclick = e => {
     e.stopPropagation();
-    openLightbox(img.src);
-  });
+    const i = c.querySelector('img');
+    openLb(i.src, i.alt);
+  };
 });
 
-// 打开放大层
-function openLightbox(src) {
-  currentScale = 0.5;
-  offsetX = 0;
-  offsetY = 0;
-  
-  lightboxImg.src = src;
-  imgContainer.style.transform = `translate(-50%, -50%) scale(${currentScale})`;
-  scaleTip.textContent = `${Math.round(currentScale * 100)}%`;
-  
-  lightbox.style.display = 'block';
+function openLb(src, alt) {
+  scale = 0.5; ox = oy = 0;
+  lbImg.src = src;
+  lbImg.alt = alt;
+  cont.style.transform = `translate(-50%,-50%) scale(${scale})`;
+  st.textContent = Math.round(scale*100) + '%';
+  lb.style.display = 'block';
   document.body.style.overflow = 'hidden';
 }
 
-// 关闭放大层
-function closeLightbox() {
-  lightbox.style.display = 'none';
+function closeLb() {
+  lb.style.display = 'none';
   document.body.style.overflow = 'auto';
 }
 
-// 滚轮缩放功能
-lightbox.addEventListener('wheel', (e) => {
+cont.onclick = e => e.stopPropagation();
+
+lb.onwheel = e => {
   e.preventDefault();
-  const delta = e.deltaY > 0 ? -0.1 : 0.1;
-  currentScale = Math.max(0.1, Math.min(3, currentScale + delta));
-  imgContainer.style.transform = `translate(calc(-50% + ${offsetX}px), calc(-50% + ${offsetY}px)) scale(${currentScale})`;
-  scaleTip.textContent = `${Math.round(currentScale * 100)}%`;
-});
+  scale = Math.max(0.1, Math.min(3, scale + (e.deltaY > 0 ? -0.1 : 0.1)));
+  cont.style.transform = `translate(calc(-50% + ${ox}px), calc(-50% + ${oy}px)) scale(${scale})`;
+  st.textContent = Math.round(scale*100) + '%';
+};
 
-// 图片拖拽功能
-imgContainer.addEventListener('mousedown', (e) => {
-  isDragging = true;
-  startX = e.clientX - offsetX;
-  startY = e.clientY - offsetY;
-  imgContainer.classList.add('grabbing');
+cont.onmousedown = e => {
+  drag = true;
+  sx = e.clientX - ox;
+  sy = e.clientY - oy;
+  cont.classList.add('grabbing');
   e.preventDefault();
-});
+};
 
-document.addEventListener('mousemove', (e) => {
-  if (!isDragging) return;
-  offsetX = e.clientX - startX;
-  offsetY = e.clientY - startY;
-  imgContainer.style.transform = `translate(calc(-50% + ${offsetX}px), calc(-50% + ${offsetY}px)) scale(${currentScale})`;
-});
+document.onmousemove = e => {
+  if (!drag) return;
+  ox = e.clientX - sx;
+  oy = e.clientY - sy;
+  cont.style.transform = `translate(calc(-50% + ${ox}px), calc(-50% + ${oy}px)) scale(${scale})`;
+};
 
-document.addEventListener('mouseup', () => {
-  isDragging = false;
-  imgContainer.classList.remove('grabbing');
-});
+document.onmouseup = () => {
+  drag = false;
+  cont.classList.remove('grabbing');
+};
 
-// ESC键关闭放大层
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') closeLightbox();
+document.onkeydown = e => {
+  if (e.key === 'Escape') closeLb();
+};
+
+// 错误处理
+document.querySelectorAll('img').forEach(img => {
+  img.onerror = () => img.src = 'https://via.placeholder.com/400?text=加载失败';
 });
 </script>
 </body>
